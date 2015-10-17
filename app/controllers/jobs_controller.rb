@@ -1,10 +1,11 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.where(:adminuser_id => current_user.id)
+    #@jobs = Job.all
   end
 
   # GET /jobs/1
@@ -25,7 +26,7 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
-
+    @job.adminuser_id = current_user.id
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
