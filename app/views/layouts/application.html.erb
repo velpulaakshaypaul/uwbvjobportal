@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WebEmploymentSystem</title>
+  <title>Online Application System</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -17,7 +17,7 @@
            <%= content_tag :div, msg, :id => "flash_#{name}" %>
          </div>
        <% end %>
-     <% end %> 
+     <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </div>
