@@ -28,6 +28,9 @@ module NavigationHelpers
     when /^the signup page$/
       '/users/sign_up'
 
+    when /^the edit page$/
+      edit_user_registration_path
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

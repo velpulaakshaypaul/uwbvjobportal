@@ -1,0 +1,103 @@
+{
+  "Cucumber Features": {
+    "coverage": {
+      "/home/jacob/OnlineApplicationSystem/app/models/user.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/jacob/OnlineApplicationSystem/app/controllers/pages_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/home/jacob/OnlineApplicationSystem/app/controllers/application_controller.rb": [
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/jacob/OnlineApplicationSystem/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/jacob/OnlineApplicationSystem/app/helpers/adminusers_helper.rb": [
+        1,
+        null
+      ],
+      "/home/jacob/OnlineApplicationSystem/app/helpers/devise_helper.rb": [
+        1,
+        1,
+        9,
+        null,
+        16,
+        4,
+        null,
+        null,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        4,
+        null,
+        null,
+        null
+      ],
+      "/home/jacob/OnlineApplicationSystem/app/helpers/jobs_helper.rb": [
+        1,
+        null
+      ],
+      "/home/jacob/OnlineApplicationSystem/app/helpers/pages_helper.rb": [
+        1,
+        null
+      ]
+    },
+    "timestamp": 1445054550
+  }
+}
