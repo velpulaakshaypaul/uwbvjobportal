@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Created as part of the devise gem installation. Should be changed once production URL is determined
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'velpulaakshaypaul@gmail.com', port: 3000 }
 end

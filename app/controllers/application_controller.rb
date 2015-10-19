@@ -31,5 +31,13 @@ class ApplicationController < ActionController::Base
        root_path
      end
    end
+     def after_sign_up_path_for(resource)
+       @user = current_user
+    #   if @user.admin?
+         jobs_path
+    #   else
+    #     root_path
+    #   end
+     end
 
 end

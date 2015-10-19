@@ -28,7 +28,7 @@ class AdminusersController < ApplicationController
      pwd = ::BCrypt::Password.create(@adminuser.password, :cost => cost).to_s
      @user = User.new(:firstname => @adminuser.firstname, :updated_at => Time.now, :created_at => Time.now, :lastname => @adminuser.lastname, :contact => @adminuser.contact, :email => @adminuser.email, :encrypted_password => pwd, :admin => true)
      sign_in @user
-     sign_in @user, :bypass => true
+  #   sign_in @user, :bypass => true
      respond_to do |format|
        if @adminuser.save
          format.html { redirect_to @adminuser, notice: 'Adminuser was successfully created.' }
