@@ -15,7 +15,11 @@ class AdminusersController < ApplicationController
   def new
     @adminuser = Adminuser.new
   end
+ def test
+   @user=User.new( :firstname=> "Akshay" );
+  @user2=User.new( :firstname=> "Varun" );
 
+ end
   # GET /adminusers/1/edit
   def edit
   end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :adminusers
+  resources :adminusers do
+    collection do
+    get 'test'
+  end
+  end
   resources :jobs
   devise_for :users
   get 'pages/about'
