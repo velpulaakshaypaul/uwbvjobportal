@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
   root 'pages#about'
+
+  match '/pages/internship', :to => 'pages#internship', :via => [:get, :post]
+  match '/pages/paidemployment', :to => 'pages#paidemployment', :via => [:get, :post]
+  match '/pages/volunteer', :to => 'pages#volunteer', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

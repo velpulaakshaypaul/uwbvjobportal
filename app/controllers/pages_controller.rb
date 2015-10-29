@@ -6,4 +6,14 @@ class PagesController < ApplicationController
   def contact
   end
 
+  def internship
+    @internship
+  end
+  def paidemployment
+    @paidemployment
+  end
+  def volunteer
+    @volunteer
+  end
+
 end

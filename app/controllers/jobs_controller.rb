@@ -27,13 +27,19 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.adminuser_id = current_user.id
+    puts job_params
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render :show, status: :created, location: @job }
-      else
-        format.html { render :new }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
+        if @job.jobtype=="Internship"
+          format.html { redirect_to pages_internship_path, notice: 'Job was successfully created.' }
+          format.json { render :show, status: :created, location: @job }
+        elsif @job.jobtype=="Paid Employment"
+          format.html { redirect_to pages_paidemployment_path, notice: 'Job was successfully created.' }
+          format.json { render :show, status: :created, location: @job }
+        else
+          format.html { redirect_to pages_volunteer_path, notice: 'Job was successfully created.' }
+          format.json { render :show, status: :created, location: @job }
+        end
       end
     end
   end
@@ -70,6 +76,7 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :description, :qualifications, :postedon, :deadline)
+      params.require(:job).permit(:title, :description, :qualifications, :jobtype, :postedon, :deadline)
     end
+
 end
