@@ -18,7 +18,7 @@ class AdminusersController < ApplicationController
  def test
    @user=User.new( :firstname=> "Akshay" );
   @user2=User.new( :firstname=> "Varun" );
-
+  UserMailer.welcome_email(@user).deliver
  end
   # GET /adminusers/1/edit
   def edit
