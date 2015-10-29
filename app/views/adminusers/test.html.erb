@@ -1,3 +1,4 @@
+<head>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <h1>Applicant Information</h1>
@@ -10,62 +11,26 @@
 <%= link_to "Go Back", jobs_path %>
 
 
-<head>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
     <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.css">
 
     <script type="text/javascript">
-    $(function() {
+    $( document ).ready(function() {
 
-        // Allows user to click Enter key in text field and it will submit the dialog
-        $('#myDialog').keypress(function(e) {
-            if (e.keyCode == $.ui.keyCode.ENTER) {
-                getResponse();
-            }
-        });
+      $("#poll").click(function() {
+          $("#myDialog").dialog({height: 'auto', buttons: { "OK": function() { $(this).dialog("close"); } } });
+      });
+   });
 
-        var cancel = function() {
-            $("#myDialog").dialog("close");
-        }
-
-        var getResponse = function() {
-            var answer;
-            /*// for radio-button selection
-            $("input").each(function(){
-              (this.checked == true) ? answer = $(this).val() : null;
-            });
-             */
-
-            answer = $("#first_name").val();
-
-            // This adds it dynamically
-            // $("<p>").text(answer).insertAfter($("#poll"));
-            $("#result").text(answer);
-            $("#myDialog").dialog("close");
-        }
-
-        var dialogOpts = {
-            modal : true,
-            closeOnEscape : true,
-            buttons : {
-                "Done" : getResponse,
-                "Cancel" : cancel
-            },
-            autoOpen : false
-        };
-        $("#myDialog").dialog(dialogOpts);
-        $("#poll").click(function() {
-            $("#myDialog").dialog("open");
-        });
-    });
     </script>
 
 </head>
 <body>
     <button id="poll">Click to Schedule Interview</button>
-    <div id="myDialog" class="flora" title="Schedule Interview options">
+    <div id="myDialog" class="flora" title="Schedule Interview options" style="display: none;">
       <br>
       <p>Interview Scheduling Options for</p>
       <%= @user.firstname %></li><br/>
