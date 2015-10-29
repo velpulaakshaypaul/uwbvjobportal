@@ -40,8 +40,27 @@
       <br>
       <label for="no">Send Rejection Mail   :( </label><input type="radio" id="no" value="no" name="question">
       <br/>
-        Interview Date(MM/DD/YY): <input type="text" id="first_name" />
-        Interview Time: <input type="text" id="time_name" />
+        <!-- add styles -->
+      <link href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
+
+      <!-- add scripts -->
+      <script src="js/jquery.191.js"></script>
+      <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+
+        <!--Interview Date(MM/DD/YY): <input type="text" id="first_name" />
+        Interview Time: <input type="text" id="time_name" /> -->
+        Interview Date: <input id="datepicker" type="text" />
+
+        <script>
+          $(function(){
+            $.datepicker.setDefaults(
+              $.extend($.datepicker.regional[''])
+            );
+            $('#datepicker').datepicker();
+          });
+        </script>
+
+
     </div>
 
     <div style='color: green;' id='result'>
