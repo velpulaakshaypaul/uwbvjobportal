@@ -8,6 +8,10 @@
 <li>Schedule Interview for </li>
 <li><%= @user2.firstname %></li>
 </ol>
+
+ <!-- Calendar goes here! -->
+    <%= event_calendar(4, true) %>
+    <%= javascript_include_tag 'event_calendar' %>
 <%= link_to "Go Back", jobs_path %>
 
 
