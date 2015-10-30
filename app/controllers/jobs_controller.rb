@@ -11,6 +11,7 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    @questions=Question.where(:job_id => params[:id])
   end
 
   # GET /jobs/new
@@ -27,19 +28,10 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.adminuser_id = current_user.id
-    puts job_params
     respond_to do |format|
       if @job.save
-        if @job.jobtype=="Internship"
-          format.html { redirect_to pages_internship_path, notice: 'Job was successfully created.' }
+          format.html { redirect_to questions_path, notice: 'Job was successfully created.' }
           format.json { render :show, status: :created, location: @job }
-        elsif @job.jobtype=="Paid Employment"
-          format.html { redirect_to pages_paidemployment_path, notice: 'Job was successfully created.' }
-          format.json { render :show, status: :created, location: @job }
-        else
-          format.html { redirect_to pages_volunteer_path, notice: 'Job was successfully created.' }
-          format.json { render :show, status: :created, location: @job }
-        end
       end
     end
   end

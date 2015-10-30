@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Internship Applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Job</th>
+      <th>Applicant</th>
+      <th>Answers list</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @internship_applications.each do |internship_application| %>
+      <tr>
+        <td><%= internship_application.job_id %></td>
+        <td><%= internship_application.applicant_id %></td>
+        <td><%= internship_application.answers_list %></td>
+        <td><%= link_to 'Show', internship_application %></td>
+        <td><%= link_to 'Edit', edit_internship_application_path(internship_application) %></td>
+        <td><%= link_to 'Destroy', internship_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Internship application', new_internship_application_path %>
