@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :adminusers do
     collection do
-    get 'test'
+    get 'viewapplicants'
   end
   end
   resources :jobs

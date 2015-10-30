@@ -15,7 +15,7 @@ class AdminusersController < ApplicationController
   def new
     @adminuser = Adminuser.new
   end
- def test
+ def viewapplicants
    @user=User.new( :firstname=> "Akshay" );
   @user2=User.new( :firstname=> "Varun" );
   UserMailer.welcome_email(@user).deliver
