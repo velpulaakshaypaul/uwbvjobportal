@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'pages/contact'
   root 'pages#about'
   match '/pages/applicant_home', :to => 'pages#home', :via => [:get]
+  match '/pages/applicant_show_job', :to => 'pages#showjob', :via => [:get]
+  match '/pages/applicant_apply_job', :to => 'pages#applyjob', :via => [:get]
 
   match '/pages/paidemployment', :to => 'pages#paidemployment', :via => [:get, :post]
   match '/pages/volunteer', :to => 'pages#volunteer', :via => [:get, :post]
