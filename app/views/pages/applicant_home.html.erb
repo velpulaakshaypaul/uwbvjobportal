@@ -1,0 +1,19 @@
+<h1>Open Jobs</h1>
+
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

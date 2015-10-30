@@ -28,16 +28,11 @@ class ApplicationController < ActionController::Base
      if @user.admin?
        jobs_path
      else
-       root_path
+       pages_applicant_home_path
      end
    end
      def after_sign_up_path_for(resource)
-       @user = current_user
-    #   if @user.admin?
-         jobs_path
-    #   else
-    #     root_path
-    #   end
+       new_user_session_path
      end
 
 end
