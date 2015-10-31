@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   resources :questions
   resources :applicants
   resources :internship_applications
-  resources :adminusers
+  resources :adminusers do
+    collection do
+     get 'viewapplicantinformation'
+     get 'sendemails'
+    end
+    end
   resources :jobs
   devise_for :users
   get 'pages/about'
