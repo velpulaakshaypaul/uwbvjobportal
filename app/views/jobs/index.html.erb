@@ -1,3 +1,14 @@
+<head>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.js"></script> 
+  <!--link rel='stylesheet' href='fullcalendar/fullcalendar.css' /-->
+  <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
+
+  <!--script src='lib/jquery.min.js'></script-->
+  <!--script src='lib/momentjs.min.js'></script-->
+  <!--script src='fullcalendar/fullcalendar.js'></script-->
+</head>
+
 <h1>Posted Jobs</h1>
 
 <table class="table table-condensed table-hover">
@@ -33,3 +44,6 @@
 
 <%= link_to 'New Job', new_job_path, class: "btn btn-link" %>
 <%= link_to 'Add Admin', new_adminuser_path, class: "btn btn-link" %>
+
+<div id="calendar">
+</div>
