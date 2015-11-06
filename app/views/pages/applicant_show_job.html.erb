@@ -1,0 +1,25 @@
+<p>
+  <strong>Title:</strong>
+  <%= @job.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @job.description %>
+</p>
+
+<p>
+  <strong>Qualifications:</strong>
+  <%= @job.qualifications %>
+</p>
+
+<p>
+  <strong>Postedon:</strong>
+  <%= @job.postedon %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @job.deadline %>
+</p>
+<%= link_to "Apply Now", pages_applicant_apply_job_path(:job_id => @job.id), class: "btn btn-primary" %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @internship_application.job_id %>
+</p>
+
+<p>
+  <strong>Applicant:</strong>
+  <%= @internship_application.applicant_id %>
+</p>
+
+<p>
+  <strong>Answers list:</strong>
+  <%= @internship_application.answers_list %>
+</p>
+
+<%= link_to 'Edit', edit_internship_application_path(@internship_application) %> |
+<%= link_to 'Back', internship_applications_path %>

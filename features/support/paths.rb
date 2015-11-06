@@ -22,6 +22,9 @@ module NavigationHelpers
     when /^the jobs page$/
       new_user_session_path
 
+    when /^the create new job page$/
+      new_user_session_path
+
     when /^the new registration page$/
       user_registration_path
 

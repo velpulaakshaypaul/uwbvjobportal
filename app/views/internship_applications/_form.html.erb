@@ -1,0 +1,29 @@
+<%= form_for(@internship_application) do |f| %>
+  <% if @internship_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@internship_application.errors.count, "error") %> prohibited this internship_application from being saved:</h2>
+
+      <ul>
+      <% @internship_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :job_id %><br>
+    <%= f.number_field :job_id %>
+  </div>
+  <div class="field">
+    <%= f.label :applicant_id %><br>
+    <%= f.number_field :applicant_id %>
+  </div>
+  <div class="field">
+    <%= f.label :answers_list %><br>
+    <%= f.text_field :answers_list %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

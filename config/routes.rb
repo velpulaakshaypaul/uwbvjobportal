@@ -1,16 +1,36 @@
 Rails.application.routes.draw do
+# <<<<<<< HEAD
   get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   resources :adminusers do
     collection do
     get 'viewapplicants'
   end
   end
+# =======
+  resources :questions
+  resources :questions
+  resources :applicants
+  resources :internship_applications
+  resources :adminusers do
+    collection do
+     get 'viewapplicantinformation'
+     get 'sendemails'
+    end
+    end
+# >>>>>>> e6b1b225c542ff112034bb5fade7eb2de6c16b30
   resources :jobs
   devise_for :users
   get 'pages/about'
 
   get 'pages/contact'
   root 'pages#about'
+  match '/pages/applicant_home', :to => 'pages#home', :via => [:get]
+  match '/pages/applicant_show_job', :to => 'pages#showjob', :via => [:get]
+  match '/pages/applicant_apply_job', :to => 'pages#applyjob', :via => [:get]
+  match '/pages/applicant_show_questions', :to => 'pages#showquestions', :via => [:get]
+
+  match '/pages/paidemployment', :to => 'pages#paidemployment', :via => [:get, :post]
+  match '/pages/volunteer', :to => 'pages#volunteer', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,6 +11,7 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    @questions=Question.where(:job_id => params[:id])
   end
 
   # GET /jobs/new
@@ -29,11 +30,8 @@ class JobsController < ApplicationController
     @job.adminuser_id = current_user.id
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render :show, status: :created, location: @job }
-      else
-        format.html { render :new }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
+          format.html { redirect_to questions_path, notice: 'Job was successfully created.' }
+          format.json { render :show, status: :created, location: @job }
       end
     end
   end
@@ -70,6 +68,7 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :description, :qualifications, :postedon, :deadline)
+      params.require(:job).permit(:title, :description, :qualifications, :jobtype, :postedon, :deadline)
     end
+
 end

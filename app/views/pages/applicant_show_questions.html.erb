@@ -1,0 +1,7 @@
+<% @questions.each do |question| %>
+  <%= question.questions_list %>
+  <br/><br/>
+  <%= text_area_tag(:answer, content=nil,:cols => "100") %>
+  <br /><br />
+<% end %>
+<br />

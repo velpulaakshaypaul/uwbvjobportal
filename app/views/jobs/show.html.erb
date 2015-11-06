@@ -22,6 +22,14 @@
   <strong>Deadline:</strong>
   <%= @job.deadline %>
 </p>
+<p>
+  <strong>Questions:</strong>
+</p>
 
+<% @questions.each do |question| %>
+  <%= question.questions_list %>
+  <br />
+<% end %>
+<br />
 <%= link_to 'Edit', edit_job_path(@job), class: "btn btn-link" %> |
 <%= link_to 'Back', jobs_path, class: "btn btn-link" %>
