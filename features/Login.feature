@@ -11,7 +11,7 @@ Scenario: redirecting to Login Page
 
 Scenario: redirecting to jobs page
   Given I am on the login page
-  When I enter the following login credentials: aa@hh.com, aaaaaaaa
+  When I enter the following login credentials: nikitapatil@tamu.edu, nikitpatil
 	And I press "Log in"
   Then I should be on the jobs page
 

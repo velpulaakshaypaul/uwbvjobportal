@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+# <<<<<<< HEAD
+  get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  resources :adminusers do
+    collection do
+    get 'viewapplicants'
+  end
+  end
+# =======
   resources :questions
   resources :questions
   resources :applicants
@@ -9,6 +17,7 @@ Rails.application.routes.draw do
      get 'sendemails'
     end
     end
+# >>>>>>> e6b1b225c542ff112034bb5fade7eb2de6c16b30
   resources :jobs
   devise_for :users
   get 'pages/about'
@@ -76,4 +85,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  #get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 end
