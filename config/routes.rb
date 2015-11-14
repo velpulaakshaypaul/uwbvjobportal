@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :internship_applications
   resources :adminusers do
     collection do
-     get 'viewapplicantinformation'
      get 'sendemails'
     end
     end
@@ -18,12 +17,17 @@ Rails.application.routes.draw do
   match '/pages/applicant_home', :to => 'pages#home', :via => [:get]
   match '/pages/applicant_show_job', :to => 'pages#showjob', :via => [:get]
   match '/pages/applicant_apply_job', :to => 'pages#applyjob', :via => [:get]
-  match '/pages/applicant_show_questions', :to => 'pages#showquestions', :via => [:get]
+  match '/pages/applicant_show_questions', :to => 'pages#showquestions', :via => [:get, :post]
 
   match '/pages/paidemployment', :to => 'pages#paidemployment', :via => [:get, :post]
   match '/pages/volunteer', :to => 'pages#volunteer', :via => [:get, :post]
+  match '/pages/intern_application_review', :to => 'pages#internreview', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  match '/pages/internship_application_success', :to => 'pages#internapplicationsuccess', :via => [:get, :post]
+
+  match '/jobs/display_applicant_information', :to => 'jobs#displayapplicantforjob', :via => [:get, :post]
+
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

@@ -60,6 +60,12 @@ class JobsController < ApplicationController
     end
   end
 
+  def displayapplicantforjob
+      @job = Job.find_by_id(params[:job_id])
+      @internship_application = InternshipApplication.where(params[:job_id])
+      @applicants = Applicant.where(:id => @internship_application.applicant_id)
+      render template: "jobs/display_applicant_information"
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job
@@ -68,7 +74,7 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :description, :qualifications, :jobtype, :postedon, :deadline)
+      params.require(:job).permit(:id,:title, :description, :qualifications, :jobtype, :postedon, :deadline)
     end
 
 end

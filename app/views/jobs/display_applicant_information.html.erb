@@ -1,0 +1,9 @@
+<h1>Applicant Information</h1>
+<% @applicants.each do |applicant| %>
+  <p> First Name: <%= applicant.first_name %></p>
+  <p> Last Name: <%= applicant.last_name %></p>
+  <p> Email: <%= applicant.email %></p>
+  <p> Contact: <%= applicant.contact %></p>
+  <p> GPA: <%= applicant.gpa %></p>
+  <p> Credit Hours: <%= applicant.credit_hours %></p>
+<% end %>

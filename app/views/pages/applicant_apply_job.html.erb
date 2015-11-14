@@ -1,11 +1,14 @@
-<%= fields_for(@applicant) do |fa| %>
-  <% if @job.jobtype == "Internship" %>
-    <% render partial: "internshipapplication", :locals => {:fa => fa} %>
-  <% elsif @job.jobtype == "Paid Employment" %>
-    <% render partial: "paidemploymentapplication", :locals => {:fa => fa} %>
-  <% else %>
-    <% render partial: "volunteerapplication", :locals => {:fa => fa} %>
+<%= form_for @applicant, :url => pages_applicant_show_questions_path(:job_id => @job.id) do |applicant| %>
+  <%= applicant.fields_for :applicantdetails do |fa| %>
+    <% if @job.jobtype == "Internship" %>
+      <% render partial: "internshipapplication", :locals => {:fa => fa} %>
+    <% elsif @job.jobtype == "Paid Employment" %>
+      <% render partial: "paidemploymentapplication", :locals => {:fa => fa} %>
+    <% else %>
+      <% render partial: "volunteerapplication", :locals => {:fa => fa} %>
+    <% end %>
   <% end %>
+<div class="actions">
+  <%= applicant.submit class:"btn btn-primary" %>
+</div>
 <% end %>
-
-<%= link_to "Next", pages_applicant_show_questions_path(:job_id => @job.id), class: "btn btn-primary" %>

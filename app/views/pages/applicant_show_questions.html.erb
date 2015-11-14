@@ -1,7 +1,20 @@
-<% @questions.each do |question| %>
-  <%= question.questions_list %>
-  <br/><br/>
-  <%= text_area_tag(:answer, content=nil,:cols => "100") %>
-  <br /><br />
+<%= form_for @internship_application, :url => pages_intern_application_review_path(:application_id => @application.id) do |internship_application| %>
+    <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>Why would you like to intern for United Way of the Brazos Valley?</p>
+    <%= internship_application.label :answer1 %><br>
+    <%= internship_application.text_area :answer1, class: "form-control" %>
+  </div>
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>How would your background enable you to succeed in that role at UWBV?</p>
+    <%= internship_application.label :answer2 %><br>
+    <%= internship_application.text_field :answer2, class: "form-control" %>
+  </div>
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>Have you ever interned in United Way of the Brazos Valley or other United Way sites before?</p>
+    <%= internship_application.label :answer3 %><br>
+    <%= internship_application.text_field :answer3, class: "form-control" %>
+  </div>
+<div class="actions">
+  <%= internship_application.submit class:"btn btn-primary" %>
+</div>
 <% end %>
-<br />

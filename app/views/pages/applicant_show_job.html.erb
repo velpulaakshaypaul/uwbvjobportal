@@ -22,4 +22,5 @@
   <strong>Deadline:</strong>
   <%= @job.deadline %>
 </p>
+
 <%= link_to "Apply Now", pages_applicant_apply_job_path(:job_id => @job.id), class: "btn btn-primary" %>

@@ -28,8 +28,8 @@ class InternshipApplicationsController < ApplicationController
 
     respond_to do |format|
       if @internship_application.save
-        format.html { redirect_to @internship_application, notice: 'Internship application was successfully created.' }
-        format.json { render :show, status: :created, location: @internship_application }
+        format.html { redirect_to @pages_intern_application_review_path, notice: 'Internship application was successfully created.' }
+        format.json { render :show, status: :created, location: @pages_intern_application_review_path }
       else
         format.html { render :new }
         format.json { render json: @internship_application.errors, status: :unprocessable_entity }

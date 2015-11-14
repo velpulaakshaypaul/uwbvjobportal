@@ -15,19 +15,16 @@ class AdminusersController < ApplicationController
   def new
     @adminuser = Adminuser.new
   end
-def sendemails
-  @user=User.new( :firstname=> params[:subject] );
-  @Mailtester=UserMailer.welcome_email(@user).deliver
-  redirect_to :action => 'viewapplicantinformation'
-end
+
+  def sendemails
+    @user=User.new( :firstname=> params[:subject] );
+    @Mailtester=UserMailer.welcome_email(@user).deliver
+    #redirect_to :action => 'viewapplicantinformation'
+  end
   # GET /adminusers/1/edit
   def edit
   end
-  def viewapplicantinformation
-   @user=User.new( :firstname=> "Akshay" );
-   @user2=User.new( :firstname=> "Varun" );
- #@users = User.all
-  end
+
   # POST /adminusers
   # POST /adminusers.json
   def create
