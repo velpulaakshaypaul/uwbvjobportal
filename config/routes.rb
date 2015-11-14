@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+# <<<<<<< HEAD
+  get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  resources :adminusers do
+    collection do
+    get 'viewapplicants'
+  end
+  end
+# =======
   resources :questions
   resources :questions
   resources :applicants
@@ -6,8 +14,10 @@ Rails.application.routes.draw do
   resources :adminusers do
     collection do
      get 'sendemails'
+     get 'viewapplicants'
     end
     end
+# >>>>>>> e6b1b225c542ff112034bb5fade7eb2de6c16b30
   resources :jobs
   devise_for :users
   get 'pages/about'
@@ -25,8 +35,6 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   match '/pages/internship_application_success', :to => 'pages#internapplicationsuccess', :via => [:get, :post]
-
-  match '/jobs/display_applicant_information', :to => 'jobs#displayapplicantforjob', :via => [:get, :post]
 
 
   # You can have the root of your site routed with "root"
@@ -80,4 +88,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  #get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 end

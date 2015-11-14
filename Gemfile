@@ -60,4 +60,8 @@ group :development, :test do
   gem 'spring'
 gem 'factory_girl_rails', '>= 4.1.0', :require => false
   # Gem to assist in user sign up and authentication
+
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 end

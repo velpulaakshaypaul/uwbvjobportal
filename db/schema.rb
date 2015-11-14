@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 20151113020938) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.string   "allDay"
+    t.string   "user_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "experiences", force: :cascade do |t|
     t.string   "employer"
     t.string   "supervisor"
