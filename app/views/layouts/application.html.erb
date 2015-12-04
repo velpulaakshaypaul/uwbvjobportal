@@ -3,29 +3,28 @@
 <head>
   <title>Online Application System</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= render '/layouts/bootstrap' %>
+  <%= stylesheet_link_tag 'style' %>
 
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
   <!--link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
   <script src='lib/jquery.min.js'></script>
   <script src='lib/momentjs.min.js'></script>
   <script src='fullcalendar/fullcalendar.js'></script-->
-
 </head>
 <body>
+<!--NAVBAR-->
+
   <%= render 'layouts/navbar' %>
-  <div class="container-fluid">
-    <% flash.each do |name, msg| %>
-       <% if msg.is_a?(String) %>
-         <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissable">
-           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-           <%= content_tag :div, msg, :id => "flash_#{name}" %>
-         </div>
-       <% end %>
-     <% end %>
+
+<!--END NAVBAR-->
+
     <%= yield %>
-    <%= render 'layouts/footer' %>
-  </div>
+
 </body>
 </html>

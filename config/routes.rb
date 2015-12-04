@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   get 'pages/contact'
-  root 'pages#about'
+  root 'pages#index'
   match '/pages/applicant_home', :to => 'pages#home', :via => [:get]
   match '/pages/applicant_show_job', :to => 'pages#showjob', :via => [:get]
   match '/pages/applicant_apply_job', :to => 'pages#applyjob', :via => [:get]

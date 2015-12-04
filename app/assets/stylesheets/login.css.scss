@@ -1,0 +1,19 @@
+#logindiv {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -250px;
+    width: 100px;
+    height: 100px;
+}
+#email_textbox, #password_textbox, #remember, #login_button {
+  width: 400px;
+}
+#password_textbox {
+  width: 400px;
+}
+
+#remember {
+  width: 400px;
+}
