@@ -1,0 +1,88 @@
+<%= form_for PaidemploymentApplication.new, :url => pages_paidemploymentapplication_review_path(:application_id => @application.id) do |paidemployment_application| %>
+    <div class="form-group col-xs-6 col-xs-offset-3" style="padding-top: 100px;">
+    <p>How were you referred to our agency?</p>
+    <%= paidemployment_application.label :referral_source %><br>
+    <%= paidemployment_application.text_area :referral_source, class: "form-control" %>
+  </div>
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>What is your preferred mode of contact?</p>
+    <%= paidemployment_application.label :preferred_contact %><br>
+    <%= paidemployment_application.text_field :preferred_contact, class: "form-control" %>
+  </div>
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>What date are your available to start working?</p>
+    <%= paidemployment_application.label :availability_date %><br>
+    <%= paidemployment_application.date_select :availability_date, class: "form-control" %>
+  </div>
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>What is your desired salary?</p>
+    <%= paidemployment_application.label :desired_salary %><br>
+    <%= paidemployment_application.text_field :desired_salary, class: "form-control" %>
+  </div>
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>Do you have transportation to commute to work?</p>
+    <%= paidemployment_application.label :transportation %><br>
+      <br />
+      <%= paidemployment_application.radio_button(:transportation, "Yes") %>
+      <%= paidemployment_application.label(:transportation_yes, "yes") %>
+      <br />
+      <%= paidemployment_application.radio_button(:transportation, "No") %>
+      <%= paidemployment_application.label(:transportation_no, "no") %>
+      <br />
+    </div>
+    <div class="form-group col-xs-6 col-xs-offset-3">
+      <p>Are you above 18 years of age?</p>
+      <%= paidemployment_application.label :over_eighteen %><br>
+        <br />
+        <%= paidemployment_application.radio_button(:over_eighteen, "Yes") %>
+        <%= paidemployment_application.label(:transportation_yes, "yes") %>
+        <br />
+        <%= paidemployment_application.radio_button(:over_eighteen, "No") %>
+        <%= paidemployment_application.label(:over_eighteen_no, "no") %>
+        <br />
+    </div>
+    <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>What days and hours are you available for work?</p>
+    <%= paidemployment_application.label :a1 %><br>
+    <%= paidemployment_application.text_area :a1, class: "form-control" %>
+  </div>
+      <div class="form-group col-xs-6 col-xs-offset-3">
+      <p>Have you applied to work for UWBV before? If yes, please explain (include date).</p>
+      <%= paidemployment_application.label :a2 %><br>
+      <%= paidemployment_application.text_area :a2, class: "form-control" %>
+    </div>
+        <div class="form-group col-xs-6 col-xs-offset-3">
+        <p>Do you have any friends, relatives or acquaintances currently working for UWBV? If yes, state name(s) and relationship(s).</p>
+        <%= paidemployment_application.label :a3 %><br>
+        <%= paidemployment_application.text_area :a3, class: "form-control" %>
+      </div>
+          <div class="form-group col-xs-6 col-xs-offset-3">
+          <p>Are you able to perform the essential functions of the job for which you are applying either with/without reasonable accommodation? If no, describe the functions that cannot be performed.</p>
+          <%= paidemployment_application.label :a4 %><br>
+          <%= paidemployment_application.text_area :a4, class: "form-control" %>
+        </div>
+            <div class="form-group col-xs-6 col-xs-offset-3">
+            <p>Have you ever been convicted of a criminal offense (felony or misdemeanor)? If yes, please describe the crime - state nature of the crime(s), when and where convicted, and disposition of the case?</p>
+            <%= paidemployment_application.label :a5 %><br>
+            <%= paidemployment_application.text_area :a5, class: "form-control" %>
+          </div>
+              <div class="form-group col-xs-6 col-xs-offset-3">
+              <p>Do you speak, write, or understand any foreign langauge? If yes, describe which language(s) and how fluent of a speaker you consider to be? </p>
+              <%= paidemployment_application.label :a6 %><br>
+              <%= paidemployment_application.text_area :a6, class: "form-control" %>
+            </div>
+
+                  <div class="form-group col-xs-6 col-xs-offset-3">
+                  <p>Do you have any other experience, training, qualificaions, or skills which you feel should be brought to our attention, in the case that they make you especially suited to work with us?</p>
+                  <%= paidemployment_application.label :a7 %><br>
+                  <%= paidemployment_application.text_area :a7, class: "form-control" %>
+                </div>
+                <div class="form-group col-xs-6 col-xs-offset-3">
+                <p>Are you currently employed? If yes, may we contact your current employer?</p>
+                <%= paidemployment_application.label :a8 %><br>
+                <%= paidemployment_application.text_area :a8, class: "form-control" %>
+              </div>
+<div class="actions" style="padding-top: 300px;">
+  <%= paidemployment_application.submit class:"btn btn-primary" %>
+</div>
+<% end %>

@@ -22,6 +22,12 @@ module NavigationHelpers
     when /^the jobs page$/
       new_user_session_path
 
+    when /^the applicant home page$/
+      '/pages/applicant_home'
+    
+    when /^the job details page$/
+      '/pages/applicant_show_job?job_id=1'
+
     when /^the create new job page$/
       new_user_session_path
 

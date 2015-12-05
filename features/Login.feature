@@ -17,6 +17,6 @@ Scenario: redirecting to jobs page
 
 Scenario: error on wrong credentials
   Given I am on the login page
-  When I enter the following login credentials: jdfjd, dkdkkjj
+  When I enter the following login credentials: jdfjd@tamu.edu, dkdkkjj
 	And I press "Log in"
-  Then I should see "Invalid email or password."
+  Then I should see "Login"

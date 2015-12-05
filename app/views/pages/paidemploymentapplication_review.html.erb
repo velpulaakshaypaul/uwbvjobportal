@@ -1,0 +1,32 @@
+<h1>Review your submission</h1>
+  <p> First Name: <%= @applicant.first_name %></p>
+  <p> Last Name: <%= @applicant.last_name %></p>
+  <p> Email: <%= @applicant.email %></p>
+  <p> Contact: <%= @applicant.contact %></p>
+  <p> Address: <%= @applicant.address %></p>
+  <p> State: <%= @applicant.state %></p>
+  <p> City: <%= @applicant.city %></p>
+  <p> Zip: <%= @applicant.zip %></p>
+  <p>Referral Source: <%= @paidemployment_application.referral_source%></p>
+  <p> Preferred mode of contact: <%=@preferred_contact%></p>
+  <p> Date of availability: <%=@availability_date%> </p>
+  <p> Desired Salary: <%=@desired_salary%></p>
+  <p> Transportation required: <%=@transportation%> </p>
+  <p> Above 18:<%=@over_eighteen%> </p>
+  <p> Will you be able to submit proof of eligibility to work in the USA?:<%=@work_proof%> </p>
+  <p>Are you willing to take a test for controlled substances?:<%=@controlledsubstance_test%> </p>
+<br/>
+<b><hr/></b>
+
+<h1>Questions</h1>
+<p> What days and hours are you available for work?<%= @answer1 %></p>
+<p> Have you applied to work for UWBV before? If yes, please explain (include date). <%= @answer2 %></p>
+<p> Do you have any friends, relatives or acquaintances currently working for UWBV? If yes, state name(s) and relationship(s). <%= @answer3 %></p>
+<p> Are you able to perform the essential functions of the job for which you are applying either with/without reasonable accommodation? If no, describe the functions that cannot be performed. <%= @answer4 %></p>
+<p> Have you ever been convicted of a criminal offense (felony or misdemeanor)? If yes, please describe the crime - state nature of the crime(s), when and where convicted, and disposition of the case? <%= @answer5 %></p>
+<p>Do you speak, write, or understand any foreign langauge? If yes, describe which language(s) and how fluent of a speaker you consider to be? <%= @answer6 %></p>
+<p> Do you have any other experience, training, qualificaions, or skills which you feel should be brought to our attention, in the case that they make you especially suited to work with us?<%= @answer7 %></p>
+<p> Are you currently employed? If yes, may we contact your current employer?<%= @answer8 %></p>
+<br/>
+<b><hr/></b>
+<%= link_to "Submit", pages_paid_application_success_path(:application_id => @application.id), class: "btn btn-primary" %>
