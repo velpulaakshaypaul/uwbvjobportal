@@ -1,9 +1,15 @@
-<h1>Open Jobs</h1>
-
+<%= stylesheet_link_tag 'applicant_home' %>
+<div class="panel panel-default" id="jobsdiv">
+  <div class="panel-heading">
+    <h3 class="panel-title">Open jobs</h3>
+  </div>
+  <div class="table-responsive">
 <table class="table table-condensed table-hover">
   <thead>
     <tr>
       <th>Title</th>
+      <th>Job type</th>
+      <th>Deadline</th>
     </tr>
   </thead>
 
@@ -11,9 +17,13 @@
     <% @jobs.each do |job| %>
       <tr>
           <td><%= link_to job.title, pages_applicant_show_job_path(:job_id => job.id), class: "btn btn-link" %></td>
+          <td><%= link_to job.jobtype, pages_applicant_show_job_path(:job_id => job.id), class: "btn btn-link" %></td>
+          <td><%= link_to job.deadline, pages_applicant_show_job_path(:job_id => job.id), class: "btn btn-link" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
+</div>

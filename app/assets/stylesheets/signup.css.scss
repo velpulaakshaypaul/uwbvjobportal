@@ -1,0 +1,13 @@
+#signupdiv {
+  position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -250px;
+    width: 100px;
+    height: 100px;
+}
+#firstname_textbox, #lastname_textbox, #contact_textbox, #email_textbox,
+#password_textbox, #password_confirm_textbox, #login_link, #signup_button, #password_confirm, #password, #firstname {
+  width: 400px;
+}
