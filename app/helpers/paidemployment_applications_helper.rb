@@ -1,0 +1,2 @@
+module PaidemploymentApplicationsHelper
+end

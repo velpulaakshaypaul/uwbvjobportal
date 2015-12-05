@@ -33,8 +33,15 @@ class PagesController < ApplicationController
     @application.status="started"
     @application.save
 
-    @internship_application = InternshipApplication.new
-    render template: "pages/applicant_show_questions"
+    if @job.jobtype=="Internship"
+      @internship_application = InternshipApplication.new
+      render template: "pages/applicant_show_questions"
+    end
+
+    if @job.jobtype=="Paid Employment"
+      @mostrecentapplication = PaidemploymentApplication.all.where(['deadline > ?', DateTime.now]).order("created_at DESC").first
+      redirect_to new_paidemployment_application_path, flash: {application_id: @mostrecentapplication.id}
+    end
   end
 
   def internreview
@@ -60,6 +67,13 @@ def internapplicationsuccess
   @application.status="Submitted"
   @application.save
   render template: "pages/internship_application_success"
+end
+
+def paidapplicationsuccess
+  @application = Application.find_by_id(params[:application_id])
+  @application.status="Submitted"
+  @application.save
+  render template: "pages/paid_application_success"
 end
 
 private

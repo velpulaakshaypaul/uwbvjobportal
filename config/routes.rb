@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :paidemployment_applications
 # <<<<<<< HEAD
   get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   resources :adminusers do
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   match '/pages/internship_application_success', :to => 'pages#internapplicationsuccess', :via => [:get, :post]
 
+  match '/pages/paid_application_success', :to => 'pages#paidapplicationsuccess', :via => [:get, :post]
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

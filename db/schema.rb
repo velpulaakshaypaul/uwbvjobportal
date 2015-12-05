@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113020938) do
+ActiveRecord::Schema.define(version: 20151205021622) do
 
   create_table "adminusers", force: :cascade do |t|
     t.string   "firstname"
@@ -112,6 +112,30 @@ ActiveRecord::Schema.define(version: 20151113020938) do
     t.datetime "updated_at",     null: false
     t.integer  "adminuser_id"
     t.string   "jobtype"
+  end
+
+  create_table "paidemployment_applications", force: :cascade do |t|
+    t.integer  "applicant_id"
+    t.integer  "job_id"
+    t.integer  "application_id"
+    t.text     "referral_source"
+    t.text     "preferred_contact"
+    t.date     "availability_date"
+    t.integer  "desired_salary"
+    t.boolean  "transportation"
+    t.boolean  "over_eighteen"
+    t.boolean  "work_proof"
+    t.boolean  "controlledsubstance_test"
+    t.text     "a1"
+    t.text     "a2"
+    t.text     "a3"
+    t.text     "a4"
+    t.text     "a5"
+    t.text     "a6"
+    t.text     "a7"
+    t.text     "a8"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "questions", force: :cascade do |t|

@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Paidemployment Applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Applicant</th>
+      <th>Job</th>
+      <th>Application</th>
+      <th>Referral source</th>
+      <th>Preferred contact</th>
+      <th>Availability date</th>
+      <th>Desired salary</th>
+      <th>Transportation</th>
+      <th>Over eighteen</th>
+      <th>Work proof</th>
+      <th>Controlledsubstance test</th>
+      <th>A1</th>
+      <th>A2</th>
+      <th>A3</th>
+      <th>A4</th>
+      <th>A5</th>
+      <th>A6</th>
+      <th>A7</th>
+      <th>A8</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paidemployment_applications.each do |paidemployment_application| %>
+      <tr>
+        <td><%= paidemployment_application.applicant_id %></td>
+        <td><%= paidemployment_application.job_id %></td>
+        <td><%= paidemployment_application.application_id %></td>
+        <td><%= paidemployment_application.referral_source %></td>
+        <td><%= paidemployment_application.preferred_contact %></td>
+        <td><%= paidemployment_application.availability_date %></td>
+        <td><%= paidemployment_application.desired_salary %></td>
+        <td><%= paidemployment_application.transportation %></td>
+        <td><%= paidemployment_application.over_eighteen %></td>
+        <td><%= paidemployment_application.work_proof %></td>
+        <td><%= paidemployment_application.controlledsubstance_test %></td>
+        <td><%= paidemployment_application.a1 %></td>
+        <td><%= paidemployment_application.a2 %></td>
+        <td><%= paidemployment_application.a3 %></td>
+        <td><%= paidemployment_application.a4 %></td>
+        <td><%= paidemployment_application.a5 %></td>
+        <td><%= paidemployment_application.a6 %></td>
+        <td><%= paidemployment_application.a7 %></td>
+        <td><%= paidemployment_application.a8 %></td>
+        <td><%= link_to 'Show', paidemployment_application %></td>
+        <td><%= link_to 'Edit', edit_paidemployment_application_path(paidemployment_application) %></td>
+        <td><%= link_to 'Destroy', paidemployment_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paidemployment application', new_paidemployment_application_path %>
