@@ -1,3 +1,8 @@
+<%= stylesheet_link_tag 'applicant_apply_job' %>
+<div class="panel panel-default col-xs-6 col-xs-offset-3" id="profiledetails">
+  <div class="panel-heading">
+    <h3 class="panel-title">Profile details</h3>
+  </div>
 <%= form_for @applicant, :url => pages_applicant_show_questions_path(:job_id => @job.id) do |applicant| %>
   <%= applicant.fields_for :applicantdetails do |fa| %>
     <% if @job.jobtype == "Internship" %>
@@ -9,6 +14,7 @@
     <% end %>
   <% end %>
 <div class="actions">
-  <%= applicant.submit class:"btn btn-primary" %>
+  <%= applicant.submit "Next", class:"btn btn-primary" %>
 </div>
 <% end %>
+</div>

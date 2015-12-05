@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'applicant_show_job' %>
-<div class="panel panel-default" id="jobdetails">
+<div class="panel panel-default col-xs-6 col-xs-offset-3" id="jobdetails">
   <div class="panel-heading">
     <h3 class="panel-title">Job details</h3>
   </div>
@@ -27,5 +27,6 @@
   <strong>Deadline:</strong>
   <%= @job.deadline %>
 </p>
+
+<%= link_to "Apply Now", pages_applicant_apply_job_path(:job_id => @job.id), class: "btn btn-primary col-xs-6 col-xs-offset-3" %>
 </div>
-<%= link_to "Apply Now", pages_applicant_apply_job_path(:job_id => @job.id), class: "btn btn-primary" %>
