@@ -1,3 +1,4 @@
+<div style="padding-top: 100px;">
 <br/>
 <br/>
 
@@ -21,8 +22,10 @@
     <p><strong>Communications and Marketing Interns Only: </strong>Please attach with your application samples of any original marketing/advertising materials such as flyers, logos, graphics, etc., if available. Or you can write a sample blog that you feel would be appropriate for the UWBV website.</p>
     <%=internship_application.label :worksample %><br>
     <%=internship_application.file_field :worksample, class: "form-control" %>
+    <div class="actions" style="padding:50px;">
+      <%= internship_application.submit "Review", class:"btn btn-primary" %>
+    </div>
   </div>
-<div class="actions" style="padding:100px;">
-  <%= internship_application.submit class:"btn btn-primary" %>
-</div>
+
 <% end %>
+</div>

@@ -113,7 +113,7 @@ end
     @applicant = Applicant.find_by_id(@application.applicant_id)
     @volunteer_application.Application_id = params[:application_id]
     @volunteer_application.Applicant_id = @application.applicant_id
-    @volunteer_application.job_id = @application.job_id
+    @volunteer_application.Job_id = @application.job_id
     @volunteer_application.save
     render template: "pages/volunteerapplication_review"
     #@internship_application = Internship_application.find_by_id(@applicant.id)

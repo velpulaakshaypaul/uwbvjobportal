@@ -1,74 +1,51 @@
-<html>
-<head>
+
+<% if @job.jobtype=="Internship" %>
+<p> First Name: <%= @applicant.first_name %></p>
+<p> Last Name: <%= @applicant.last_name %></p>
+<p> Email: <%= @applicant.email %></p>
+<p> Contact: <%= @applicant.contact %></p>
+<p> GPA: <%= @applicant.gpa %></p>
+<p> Credit Hours: <%= @applicant.credit_hours %></p>
+<br/>
+<b><hr/></b
+
+<h1>Questions</h1>
+<p> Why would you like to intern for the United Way of the Brazos Valley? <%= @internship_application.a1 %></p>
+<p> How would your background enable you to succeed in that role at UWBV? <%= @internship_application.a2 %></p>
+<p> Have you ever interned in the United Way of Brazos Valley or other United Way sites before? <%= @internship_application.a3 %></p>
+<%= link_to "Download work sample", @internship_application.worksample.url, formtarget: "_blank" %>
+<br/>
+<b><hr/></b>
+<% end %>
+
+<% if @job.jobtype=="Paid Employment" %>
+<% end %>
+
+<% if @job.jobtype=="Volunteer" %>
+<br/><br/><br/>
 <h1>Applicant Information</h1>
-<% @applicants.each do |applicant| %>
-  <p> First Name: <%= applicant.first_name %></p>
-  <p> Last Name: <%= applicant.last_name %></p>
-  <p> Email: <%= applicant.email %></p>
-  <p> Contact: <%= applicant.contact %></p>
-  <p> GPA: <%= applicant.gpa %></p>
-  <p> Credit Hours: <%= applicant.credit_hours %></p>
+<p> First Name: <%= @applicant.first_name %></p>
+<p> Last Name: <%= @applicant.last_name %></p>
+<p> Email: <%= @applicant.email %></p>
+<p> Contact: <%= @applicant.contact %></p>
+<p> Address: <%= @applicant.address %></p>
+<p> City: <%= @applicant.city %></p>
+<p> State: <%= @applicant.state %></p>
+<p> Zip: <%= @applicant.zip %></p>
+<br/><br/>
+<b><hr/></b>
+  <p>Job Title: <%= @volunteer_application.jobtitle %></p>
+  <p>Employer Name: <%= @volunteer_application.employername %></p>
+  <p>Employer Address: <%= @volunteer_application.employeraddress %></p>
+  <p>Business Phone: <%= @volunteer_application.employerphone %></p>
+  <p>Fax: <%= @volunteer_application.employerfax %></p>
+  <p>How many hours are you available to volunteer per week?: <%= @volunteer_application.hoursavailable %></p>
+<h1>Questions</h1>
+<p> In what capacities have you volunteered for UWBV or other organizations?(i.e. civic clubs, churches, not-for-profit boards, committees, elected public office)<%= @volunteer_application.a1 %></p>
+<p> Within the last three years, have you received any complaint, suit, inquiry or notice of hearing from any state or federal legislative committee, regulatory body or any other party? If yes, pelase provide a detailed explanation. <%= @volunteer_application.a2 %></p>
+<p> Are you aware of any circumstance(s) or action(s) which could result in a future claim against you? If yes, please provide a detailed explanation.<%= @volunteer_application.a3 %></p>
+<br/>
+<b><hr/></b>
 <% end %>
 
 <%= link_to "Go Back", jobs_path %>
-
-<%= content_tag :div, class: "temp_information", data: { Mailtester: @Mailtester} do %>
-<% end %>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.css">
-
-    <script type="text/javascript">
-    $( document ).ready(function() {
-
-      $("#poll").click(function() {
-          $("#myDialog").dialog({height: 'auto', buttons: { "OK": function() { var answer; answer=$("#datepicker").val() ;$.ajax({type: 'GET', url: '/adminusers/sendemails',dataType: 'script',data: { subject: ("Interview scheduled for "+ answer) }  }); $(this).dialog("close"); } } });
-      });
-   });
-
-    </script>
-
-</head>
-<body>
-    <button id="poll">Click to Schedule Interview</button>
-    <div id="myDialog" class="flora" title="Schedule Interview options" style="display: none;">
-      <br>
-      <p>Interview Scheduling Options for</p>
-      <%= @user.firstname %></li><br/>
-      <br>
-      <label for="yes">Send Email Invitation :)</label><input type="radio" id="yes" value="yes25" name="question">
-      <br/>
-      <br>
-      <label for="no">Send Rejection Mail   :( </label><input type="radio" id="no" value="no" name="question">
-      <br/>
-        <!-- add styles -->
-      <link href="css/ui-lightness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
-
-      <!-- add scripts -->
-      <script src="js/jquery.191.js"></script>
-      <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-
-        <!--Interview Date(MM/DD/YY): <input type="text" id="first_name" />
-        Interview Time: <input type="text" id="time_name" /> -->
-
-        <!-- Adding calendar functionality-->
-        Interview Date: <input id="datepicker" type="text" />
-
-        <script>
-           $(function(){
-             $.datepicker.setDefaults(
-               $.extend($.datepicker.regional[''])
-             );
-             $('#datepicker').datepicker();
-           });
-         </script>
-
-    </div>
-
-    <div style='color: green;' id='result'>
-    </div>
-
-</body>
-</html>

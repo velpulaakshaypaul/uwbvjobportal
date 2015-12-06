@@ -18,11 +18,14 @@ Rails.application.routes.draw do
     end
     end
 # >>>>>>> e6b1b225c542ff112034bb5fade7eb2de6c16b30
+
+match '/jobs/displayapplicantsforjob', :to => 'jobs#viewapplicants', :via => [:get, :post]
+match '/jobs/view_applicant_information', :to => 'jobs#viewapplicationforapplicant', :via => [:get, :post]
+
 resources :jobs do
   collection do
     get 'sendemails'
     get 'interview_records'
-    get 'viewapplicants'
   end
 end
   devise_for :users
@@ -53,8 +56,6 @@ end
   match '/pages/show_volunteer_questions', :to => 'pages#showvolunteerquestions', :via => [:get, :post]
 
   match '/pages/volunteerapplication_review', :to => 'pages#volunteerreview', :via => [:get, :post]
-
-  match '/jobs/displayapplicantsforjob', :to => 'jobs#viewapplicants', :via => [:get, :post]
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

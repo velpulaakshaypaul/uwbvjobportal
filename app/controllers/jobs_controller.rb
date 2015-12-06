@@ -19,11 +19,24 @@ class JobsController < ApplicationController
 
   def viewapplicants
     @job = Job.find_by_id(params[:job_id])
-    @applicants = Applicant.joins(:applications).where(applications: {status: "Submitted"})
-                                                .where(applications: {job_id: params[:job_id]})
-    render template: jobs/displayapplicantsforjob
+    @applicants = Applicant.joins(:applications).where(applications: {status: "Submitted"}).where(applications: {job_id: params[:job_id]})
+    render template: "jobs/displayapplicantsforjob"
   end
 
+  def viewapplicationforapplicant
+    @job = Job.find_by_id(params[:job_id])
+    @applicant=Applicant.find_by_id(params[:applicant_id])
+    @application= Application.where(:job_id => params[:job_id]).where(:applicant_id => params[:applicant_id])
+    logger.debug @application
+    if @job.jobtype == "Internship"
+      @internship_application=InternshipApplication.where(:job_id => params[:job_id]).where(:applicant_id => params[:applicant_id])
+      render template: "jobs/view_applicant_information"
+    end
+    if @job.jobtype == "Volunteer"
+      @volunteer_application=VolunteerApplication.where(:Job_id => params[:job_id]).where(:Applicant_id => params[:applicant_id]).first
+      render template: "jobs/view_applicant_information"
+    end
+  end
 
  def interview_records
  end
@@ -78,7 +91,7 @@ class JobsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job
-      @job = Job.find(params[:job_id])
+      @job = Job.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

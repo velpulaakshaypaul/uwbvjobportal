@@ -1,25 +1,34 @@
 <div style="padding-top: 100px;">
   <%= form_for VolunteerApplication.new, :url => pages_volunteerapplication_review_path(:application_id => @application.id), html: { multipart: true } do |volunteer_application| %>
 
-  <div class="field">
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>If you are employed currently, please provide the following details:</p>
+    <p>Your job title:</p>
     <%= volunteer_application.label :jobtitle %><br>
     <%= volunteer_application.text_field :jobtitle %>
   </div>
-  <div class="field">
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>Your employer's name:</p>
     <%= volunteer_application.label :employername %><br>
     <%= volunteer_application.text_field :employername %>
   </div>
-  <div class="field">
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>Your employer's address:</p>
     <%= volunteer_application.label :employeraddress %><br>
     <%= volunteer_application.text_area :employeraddress %>
   </div>
-  <div class="field">
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>Your employer's fax:</p>
     <%= volunteer_application.label :employerfax %><br>
     <%= volunteer_application.text_field :employerfax %>
+<hr>
   </div>
-  <div class="field">
+
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p>How many hours per week are you available to volunteer?</p>
     <%= volunteer_application.label :hoursavailable %><br>
     <%= volunteer_application.text_field :hoursavailable %>
+<hr>
   </div>
 
 
@@ -37,10 +46,11 @@
     <p>Are you aware of any circumstance(s) or action(s) which could result in a future claim against you? If yes, please provide a detailed explanation.</p>
     <%= volunteer_application.label :a3 %><br>
     <%= volunteer_application.text_area :a3, class: "form-control" %>
+    <div class="actions" style="padding-top: 50px;">
+      <%= volunteer_application.submit "Review", class:"btn btn-primary" %>
+    </div>
   </div>
-  <div class="actions" style="padding-top: 300px;">
-    <%= volunteer_application.submit "Review", class:"btn btn-primary" %>
-  </div>
+
 
   <% end %>
 </div>

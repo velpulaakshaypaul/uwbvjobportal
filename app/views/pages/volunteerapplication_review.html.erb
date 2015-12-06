@@ -1,3 +1,4 @@
+<div style="padding-top: 100px;">
 <h1>Review your submission</h1>
   <p> First Name: <%= @applicant.first_name %></p>
   <p> Last Name: <%= @applicant.last_name %></p>
@@ -22,3 +23,4 @@
 <br/>
 <b><hr/></b>
 <%= link_to "Submit", pages_volunteerapplication_success_path(:application_id => @application.id), class: "btn btn-primary" %>
+</div>
