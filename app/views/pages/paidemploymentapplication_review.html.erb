@@ -15,6 +15,9 @@
   <p> Above 18:<%=@over_eighteen%> </p>
   <p> Will you be able to submit proof of eligibility to work in the USA?:<%=@work_proof%> </p>
   <p>Are you willing to take a test for controlled substances?:<%=@controlledsubstance_test%> </p>
+  <p>References: <%=@references%></p>
+  <p>Education: <%=@education%></p>
+  <p>Experience: <%=@experience%></p>
 <br/>
 <b><hr/></b>
 
@@ -27,6 +30,8 @@
 <p>Do you speak, write, or understand any foreign langauge? If yes, describe which language(s) and how fluent of a speaker you consider to be? <%= @answer6 %></p>
 <p> Do you have any other experience, training, qualificaions, or skills which you feel should be brought to our attention, in the case that they make you especially suited to work with us?<%= @answer7 %></p>
 <p> Are you currently employed? If yes, may we contact your current employer?<%= @answer8 %></p>
+<%= link_to "Download resume", @paidemployment_application.resume.url, formtarget: "_blank" %>
+<%= link_to "Download cover letter", @paidemployment_application.coverletter.url, formtarget: "_blank" %>
 <br/>
 <b><hr/></b>
 <%= link_to "Submit", pages_paid_application_success_path(:application_id => @application.id), class: "btn btn-primary" %>

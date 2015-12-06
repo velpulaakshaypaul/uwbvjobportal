@@ -1,5 +1,9 @@
-<%= form_for PaidemploymentApplication.new, :url => pages_paidemploymentapplication_review_path(:application_id => @application.id) do |paidemployment_application| %>
-    <div class="form-group col-xs-6 col-xs-offset-3" style="padding-top: 100px;">
+<div style="padding-top: 100px;">
+<%= form_for PaidemploymentApplication.new, :url => pages_paidemploymentapplication_review_path(:application_id => @application.id), html: { multipart: true } do |paidemployment_application| %>
+
+
+
+    <div class="form-group col-xs-6 col-xs-offset-3">
     <p>How were you referred to our agency?</p>
     <%= paidemployment_application.label :referral_source %><br>
     <%= paidemployment_application.text_area :referral_source, class: "form-control" %>
@@ -82,7 +86,31 @@
                 <%= paidemployment_application.label :a8 %><br>
                 <%= paidemployment_application.text_area :a8, class: "form-control" %>
               </div>
+              <div class="form-group col-xs-6 col-xs-offset-3">
+              <p>List below three references that have knowledge of your work performance within the last 5 years: (Note: Include name, phone number, email, occupation and years known)</p>
+              <%= paidemployment_application.label :references %><br>
+              <%= paidemployment_application.text_area :references, class: "form-control" %>
+            </div>
+            <div class="form-group col-xs-6 col-xs-offset-3">
+            <p>List below your education details for highschool, college/university, vocational school and military (if attended): (Note: Include school name, address, years attended, did you graduate? and diploma/degree received)</p>
+            <%= paidemployment_application.label :education %><br>
+            <%= paidemployment_application.text_area :education, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-6 col-xs-offset-3">
+          <p>Describe your past and present employment positions for 3 positions. (Note: Include name of employer, name of supervisor, phone number, address, starting and ending salary, start and end date, position, duties and reason for leaving)</p>
+          <%= paidemployment_application.label :experience %><br>
+          <%= paidemployment_application.text_area :experience, class: "form-control" %>
+        </div>
+              <div class="form-group col-xs-6 col-xs-offset-3">
+                <%=paidemployment_application.label :resume %><br>
+                <%=paidemployment_application.file_field :resume, class: "form-control" %>
+              </div>
+              <div class="form-group col-xs-6 col-xs-offset-3">
+                <%=paidemployment_application.label :coverletter %><br>
+                <%=paidemployment_application.file_field :coverletter, class: "form-control" %>
+              </div>
 <div class="actions" style="padding-top: 300px;">
-  <%= paidemployment_application.submit class:"btn btn-primary" %>
+  <%= paidemployment_application.submit "Review", class:"btn btn-primary" %>
 </div>
 <% end %>
+</div>

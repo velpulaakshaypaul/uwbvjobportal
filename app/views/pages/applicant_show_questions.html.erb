@@ -1,4 +1,7 @@
-<%= form_for @internship_application, :url => pages_intern_application_review_path(:application_id => @application.id) do |internship_application| %>
+<br/>
+<br/>
+
+<%= form_for @internship_application, :url => pages_intern_application_review_path(:application_id => @application.id), html: { multipart: true } do |internship_application|%>
     <div class="form-group col-xs-6 col-xs-offset-3">
     <p>Why would you like to intern for United Way of the Brazos Valley?</p>
     <%= internship_application.label :answer1 %><br>
@@ -14,7 +17,12 @@
     <%= internship_application.label :answer3 %><br>
     <%= internship_application.text_field :answer3, class: "form-control" %>
   </div>
-<div class="actions">
+  <div class="form-group col-xs-6 col-xs-offset-3">
+    <p><strong>Communications and Marketing Interns Only: </strong>Please attach with your application samples of any original marketing/advertising materials such as flyers, logos, graphics, etc., if available. Or you can write a sample blog that you feel would be appropriate for the UWBV website.</p>
+    <%=internship_application.label :worksample %><br>
+    <%=internship_application.file_field :worksample, class: "form-control" %>
+  </div>
+<div class="actions" style="padding:100px;">
   <%= internship_application.submit class:"btn btn-primary" %>
 </div>
 <% end %>

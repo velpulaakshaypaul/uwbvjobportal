@@ -1,0 +1,24 @@
+<h1>Review your submission</h1>
+  <p> First Name: <%= @applicant.first_name %></p>
+  <p> Last Name: <%= @applicant.last_name %></p>
+  <p> Email: <%= @applicant.email %></p>
+  <p> Contact: <%= @applicant.contact %></p>
+  <p> Address: <%= @applicant.address %></p>
+  <p> State: <%= @applicant.state %></p>
+  <p> City: <%= @applicant.city %></p>
+  <p> Zip: <%= @applicant.zip %></p>
+  <br/>
+<b><hr/></b>
+  <p>Job Title: <%= @volunteer_application.jobtitle %></p>
+  <p>Employer Name: <%= @volunteer_application.employername %></p>
+  <p>Employer Address: <%= @volunteer_application.employeraddress %></p>
+  <p>Business Phone: <%= @volunteer_application.employerphone %></p>
+  <p>Fax: <%= @volunteer_application.employerfax %></p>
+  <p>How many hours are you available to volunteer per week?: <%= @volunteer_application.hoursavailable %></p>
+<h1>Questions</h1>
+<p> In what capacities have you volunteered for UWBV or other organizations?(i.e. civic clubs, churches, not-for-profit boards, committees, elected public office)<%= @volunteer_application.a1 %></p>
+<p> Within the last three years, have you received any complaint, suit, inquiry or notice of hearing from any state or federal legislative committee, regulatory body or any other party? If yes, pelase provide a detailed explanation. <%= @volunteer_application.a2 %></p>
+<p> Are you aware of any circumstance(s) or action(s) which could result in a future claim against you? If yes, please provide a detailed explanation.<%= @volunteer_application.a3 %></p>
+<br/>
+<b><hr/></b>
+<%= link_to "Submit", pages_volunteerapplication_success_path(:application_id => @application.id), class: "btn btn-primary" %>

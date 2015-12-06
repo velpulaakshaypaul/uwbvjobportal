@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   resources :adminusers do
     collection do
-    get 'viewapplicants'
+
   end
   end
 # =======
@@ -14,16 +14,22 @@ Rails.application.routes.draw do
   resources :adminusers do
     collection do
      get 'sendemails'
-     get 'viewapplicants'
+
     end
     end
 # >>>>>>> e6b1b225c542ff112034bb5fade7eb2de6c16b30
-  resources :jobs
+resources :jobs do
+  collection do
+    get 'sendemails'
+    get 'interview_records'
+    get 'viewapplicants'
+  end
+end
   devise_for :users
   get 'pages/about'
 
   get 'pages/contact'
-  root 'pages#index'
+  root 'pages#about'
   match '/pages/applicant_home', :to => 'pages#home', :via => [:get]
   match '/pages/applicant_show_job', :to => 'pages#showjob', :via => [:get]
   match '/pages/applicant_apply_job', :to => 'pages#applyjob', :via => [:get]
@@ -38,10 +44,17 @@ Rails.application.routes.draw do
 
   match '/pages/paid_application_success', :to => 'pages#paidapplicationsuccess', :via => [:get, :post]
 
+  match '/pages/volunteerapplication_success', :to => 'pages#volunteerapplicationsuccess', :via => [:get, :post]
 
   match '/pages/show_paidemployment_questions', :to => 'pages#showpaidquestions', :via => [:get, :post]
-  
+
   match '/pages/paidemploymentapplication_review', :to => 'pages#paidreview', :via => [:get, :post]
+
+  match '/pages/show_volunteer_questions', :to => 'pages#showvolunteerquestions', :via => [:get, :post]
+
+  match '/pages/volunteerapplication_review', :to => 'pages#volunteerreview', :via => [:get, :post]
+
+  match '/jobs/displayapplicantsforjob', :to => 'jobs#viewapplicants', :via => [:get, :post]
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

@@ -12,6 +12,7 @@
  <p> Why would you like to intern for the United Way of the Brazos Valley? <%= @answer1 %></p>
 <p> How would your background enable you to succeed in that role at UWBV? <%= @answer2 %></p>
 <p> Have you ever interned in the United Way of Brazos Valley or other United Way sites before? <%= @answer3 %></p>
+<%= link_to "Download work sample", @internship_application.worksample.url, formtarget: "_blank" %>
 <br/>
 <b><hr/></b>
 <%= link_to "Submit", pages_internship_application_success_path(:application_id => @application.id), class: "btn btn-primary" %>

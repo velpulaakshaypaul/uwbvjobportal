@@ -1,6 +1,6 @@
 class ApplicantsController < ApplicationController
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   # GET /applicants
   # GET /applicants.json
   def index

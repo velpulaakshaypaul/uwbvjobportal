@@ -24,7 +24,7 @@ class InternshipApplicationsController < ApplicationController
   # POST /internship_applications
   # POST /internship_applications.json
   def create
-    @internship_application = InternshipApplication.new(internship_application_params)
+    @internship_application = InternshipApplication.new
 
     respond_to do |format|
       if @internship_application.save
@@ -68,7 +68,5 @@ class InternshipApplicationsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def internship_application_params
-      params.require(:internship_application).permit(:job_id, :applicant_id, :answers_list)
-    end
+
 end

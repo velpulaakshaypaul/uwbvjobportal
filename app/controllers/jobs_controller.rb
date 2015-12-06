@@ -1,11 +1,14 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_filter :check_admin, :authenticate_user!
+
+
   # GET /jobs
   # GET /jobs.json
   def index
     @jobs = Job.where(:adminuser_id => current_user.id)
     #@jobs = Job.all
+    @email_id=params[:user_email];
   end
 
   # GET /jobs/1
@@ -14,6 +17,18 @@ class JobsController < ApplicationController
     @questions=Question.where(:job_id => params[:id])
   end
 
+  def viewapplicants
+    @job = Job.find_by_id(params[:job_id])
+    @applicants = Applicant.joins(:applications).where(applications: {status: "Submitted"})
+                                                .where(applications: {job_id: params[:job_id]})
+    render template: jobs/displayapplicantsforjob
+  end
+
+
+ def interview_records
+ end
+  def sendemails
+  end
   # GET /jobs/new
   def new
     @job = Job.new
@@ -60,21 +75,23 @@ class JobsController < ApplicationController
     end
   end
 
-  def displayapplicantforjob
-      @job = Job.find_by_id(params[:job_id])
-      @internship_application = InternshipApplication.where(params[:job_id])
-      @applicants = Applicant.where(:id => @internship_application.applicant_id)
-      render template: "jobs/display_applicant_information"
-  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job
-      @job = Job.find(params[:id])
+      @job = Job.find(params[:job_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
       params.require(:job).permit(:id,:title, :description, :qualifications, :jobtype, :postedon, :deadline)
+    end
+
+    def check_admin
+      if(current_user.admin?)
+        return true
+      else
+        redirect_to pages_applicant_home_path
+      end
     end
 
 end

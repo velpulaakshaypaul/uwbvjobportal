@@ -1,5 +1,6 @@
 class AdminusersController < ApplicationController
   before_action :set_adminuser, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
   # GET /adminusers
   # GET /adminusers.json
   def index
@@ -30,15 +31,7 @@ class AdminusersController < ApplicationController
                                                .where(applications: {job_id: params[:job_id]})
    render template: "adminusers/viewapplicants"
  end
-# #=======
-# def sendemails
-#   @user=User.new( :firstname=> params[:subject] );
-#   @Mailtester=UserMailer.welcome_email(@user).deliver
-#   redirect_to :action => 'viewapplicantinformation'
-# end
-# #>>>>>>> e6b1b225c542ff112034bb5fade7eb2de6c16b30
-# >>>>>>> 03ee3c0fb393983ef0f51c0e4250bd1162ab5907
-  # GET /adminusers/1/edit
+
   def edit
   end
 
