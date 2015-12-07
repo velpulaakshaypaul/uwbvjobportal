@@ -1,4 +1,4 @@
-Rails.application.configure do
+ails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -77,34 +77,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-
-
-
-
-  config.action_mailer.perform_deliveries = true
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.default_url_options = { :host => 'http://mysterious-earth-3084.herokuapp.com' }
-    #config.action_mailer.delivery_method = :smtp
-
-    #config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.smtp_settings = {
-      :address => "smtp.mandrillapp.com",
-      port:587,
-      domain:"domain.of.sender.net",
-      user_name:"noreply.uwbv@gmail.com",
-      password:"KR_dtef19KioX8OsyBDYAg",
-      authentication: "plain",
-      enable_starttls_auto: true,
-      #  :openssl_verify_mode => 'none',  # This line added and it works fine
-
-  }
-
-
-
-
-
 
   # Created as part of the devise gem installation. Should be changed once production URL is determined
   config.action_mailer.default_url_options = { host: 'velpulaakshaypaul@gmail.com', port: 3000 }
