@@ -34,7 +34,6 @@ class PagesController < ApplicationController
     @application.applicant_id=@applicant.id
     @application.status="started"
     @application.save
-
     if @job.jobtype=="Internship"
       @internship_application = InternshipApplication.new
       render template: "pages/applicant_show_questions"
@@ -47,7 +46,7 @@ class PagesController < ApplicationController
     if @job.jobtype=="Volunteer"
       render template: "pages/show_volunteer_questions"
     end
-end
+  end
 
   def showpaidquestions
     @application = Application.find_by_id(params[:application_id])
@@ -62,7 +61,9 @@ end
   def internreview
     @internship_application = InternshipApplication.new(internship_application_params)
     @application = Application.find_by_id(params[:application_id])
-
+    @internship_application.applicant_id = @application.applicant_id
+    @internship_application.application_id = @application.id
+    @internship_application.job_id = @application.job_id
     @internship_application.save
 
     @applicant = Applicant.find_by_id(@application.applicant_id)
@@ -78,6 +79,7 @@ end
     @paidemployment_application = PaidemploymentApplication.new(paidemployment_application_params)
     @application = Application.find_by_id(params[:application_id])
     @paidemployment_application.applicant_id = @application.applicant_id
+    @paidemployment_application.job_id = @application.job_id
     @paidemployment_application.application_id = @application.id
     @paidemployment_application.save
 
@@ -106,7 +108,7 @@ end
     render template: "pages/paidemploymentapplication_review"
     #@internship_application = Internship_application.find_by_id(@applicant.id)
   end
-
+  
   def volunteerreview
     @volunteer_application = VolunteerApplication.new(volunteerapplication_params)
     @application = Application.find_by_id(params[:application_id])

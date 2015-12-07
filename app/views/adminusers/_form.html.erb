@@ -1,3 +1,9 @@
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">New Administrator</h3>
+    </div>
 <%= form_for(@adminuser) do |f| %>
   <% if @adminuser.errors.any? %>
     <div id="error_explanation">
@@ -42,3 +48,6 @@
    <%= f.submit class:"btn btn-primary"%>
  </div>
 <% end %>
+<%= link_to 'Back', adminusers_path %>
+</div>
+</div>

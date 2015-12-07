@@ -1,7 +1,12 @@
-<div style="padding-top: 100px;">
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">Please answer the following questions</h3>
+    </div>
 <%= form_for PaidemploymentApplication.new, :url => pages_paidemploymentapplication_review_path(:application_id => @application.id), html: { multipart: true } do |paidemployment_application| %>
 
-    <div class="form-group col-xs-6 col-xs-offset-3">
+    <div class="form-group col-xs-6 col-xs-offset-3" style="padding-top:50px;">
     <p>How were you referred to our agency?</p>
     <%= paidemployment_application.label :referral_source %><br>
     <%= paidemployment_application.text_area :referral_source, class: "form-control" %>
@@ -130,4 +135,5 @@
               </div>
 
 <% end %>
+</div>
 </div>

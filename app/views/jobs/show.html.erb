@@ -1,35 +1,40 @@
-<p>
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">Job details:</h3>
+    </div>
+<p style="padding-top:50px;">
   <strong>Title:</strong>
+  </p>
   <%= @job.title %>
-</p>
+<hr>
 
 <p>
   <strong>Description:</strong>
+  </p>
   <%= @job.description %>
-</p>
 
+<hr>
 <p>
   <strong>Qualifications:</strong>
+  </p>
   <%= @job.qualifications %>
-</p>
 
+<hr>
 <p>
   <strong>Postedon:</strong>
+  </p>
   <%= @job.postedon %>
-</p>
+<hr>
 
 <p>
   <strong>Deadline:</strong>
+  </p>
   <%= @job.deadline %>
-</p>
-<p>
-  <strong>Questions:</strong>
-</p>
+<hr>
 
-<% @questions.each do |question| %>
-  <%= question.questions_list %>
-  <br />
-<% end %>
 <br />
 <%= link_to 'Edit', edit_job_path(@job), class: "btn btn-link" %> |
 <%= link_to 'Back', jobs_path, class: "btn btn-link" %>
+</div>

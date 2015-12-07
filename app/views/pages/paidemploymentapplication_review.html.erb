@@ -1,5 +1,9 @@
-<div style="padding-top: 100px;">
-<h1>Review your submission</h1>
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">Review your submission</h3>
+    </div>
   <p> First Name: <%= @applicant.first_name %></p>
   <p> Last Name: <%= @applicant.last_name %></p>
   <p> Email: <%= @applicant.email %></p>
@@ -22,18 +26,38 @@
 <br/>
 <b><hr/></b>
 
-<h1>Questions</h1>
-<p> What days and hours are you available for work?<%= @answer1 %></p>
-<p> Have you applied to work for UWBV before? If yes, please explain (include date). <%= @answer2 %></p>
-<p> Do you have any friends, relatives or acquaintances currently working for UWBV? If yes, state name(s) and relationship(s). <%= @answer3 %></p>
-<p> Are you able to perform the essential functions of the job for which you are applying either with/without reasonable accommodation? If no, describe the functions that cannot be performed. <%= @answer4 %></p>
-<p> Have you ever been convicted of a criminal offense (felony or misdemeanor)? If yes, please describe the crime - state nature of the crime(s), when and where convicted, and disposition of the case? <%= @answer5 %></p>
-<p>Do you speak, write, or understand any foreign langauge? If yes, describe which language(s) and how fluent of a speaker you consider to be? <%= @answer6 %></p>
-<p> Do you have any other experience, training, qualificaions, or skills which you feel should be brought to our attention, in the case that they make you especially suited to work with us?<%= @answer7 %></p>
-<p> Are you currently employed? If yes, may we contact your current employer?<%= @answer8 %></p>
+<h1>Your answers</h1>
+<hr>
+<p> What days and hours are you available for work?</p>
+<%= @answer1 %>
+<hr>
+<p> Have you applied to work for UWBV before? If yes, please explain (include date).</p>
+<%= @answer2 %>
+<hr>
+<p> Do you have any friends, relatives or acquaintances currently working for UWBV? If yes, state name(s) and relationship(s). </p>
+<%= @answer3 %>
+<hr>
+<p> Are you able to perform the essential functions of the job for which you are applying either with/without reasonable accommodation? If no, describe the functions that cannot be performed. </p>
+<%= @answer4 %>
+<hr>
+<p> Have you ever been convicted of a criminal offense (felony or misdemeanor)? If yes, please describe the crime - state nature of the crime(s), when and where convicted, and disposition of the case? </p>
+<%= @answer5 %>
+<hr>
+<p>Do you speak, write, or understand any foreign langauge? If yes, describe which language(s) and how fluent of a speaker you consider to be? </p>
+<%= @answer6 %>
+<hr>
+<p> Do you have any other experience, training, qualificaions, or skills which you feel should be brought to our attention, in the case that they make you especially suited to work with us?</p>
+<%= @answer7 %>
+<hr>
+<p> Are you currently employed? If yes, may we contact your current employer?</p>
+<%= @answer8 %>
+<hr>
 <%= link_to "Download resume", @paidemployment_application.resume.url, formtarget: "_blank" %>
+<hr>
 <%= link_to "Download cover letter", @paidemployment_application.coverletter.url, formtarget: "_blank" %>
+
 <br/>
 <b><hr/></b>
 <%= link_to "Submit", pages_paid_application_success_path(:application_id => @application.id), class: "btn btn-primary" %>
+</div>
 </div>

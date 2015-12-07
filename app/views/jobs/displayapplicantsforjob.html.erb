@@ -1,9 +1,9 @@
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">Applicants</h3>
+    </div>
 <table class="table table-condensed table-hover">
   <thead>
     <tr>
@@ -11,6 +11,7 @@
       <th>Last Name</th>
       <th>Email</th>
       <th>Action</th>
+      <th>Status</th>
     </tr>
   </thead>
 
@@ -20,7 +21,8 @@
         <td><%= applicant.first_name %></td>
         <td><%= applicant.last_name %></td>
         <td><%= applicant.email %></td>
-        <td><%= link_to 'Review Application', jobs_view_applicant_information_path(:job_id => @job.id,:applicant_id => applicant.id,:admin_email => @email_id), class: "btn btn-link" %></td>
+        <td><%= link_to 'Review Application', jobs_view_applicant_information_path(:job_id => @job.id,:applicant_id => applicant.id,:admin_email => @admin_email), class: "btn btn-link" %></td>
+        <td><%= @statuses[applicant.id] %></td>
       </tr>
     <% end %>
   </tbody>

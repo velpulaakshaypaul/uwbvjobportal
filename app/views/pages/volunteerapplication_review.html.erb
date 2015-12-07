@@ -1,4 +1,9 @@
-<div style="padding-top: 100px;">
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">Review your submission</h3>
+    </div>
 <h1>Review your submission</h1>
   <p> First Name: <%= @applicant.first_name %></p>
   <p> Last Name: <%= @applicant.last_name %></p>
@@ -16,11 +21,19 @@
   <p>Business Phone: <%= @volunteer_application.employerphone %></p>
   <p>Fax: <%= @volunteer_application.employerfax %></p>
   <p>How many hours are you available to volunteer per week?: <%= @volunteer_application.hoursavailable %></p>
+  <hr>
 <h1>Questions</h1>
-<p> In what capacities have you volunteered for UWBV or other organizations?(i.e. civic clubs, churches, not-for-profit boards, committees, elected public office)<%= @volunteer_application.a1 %></p>
-<p> Within the last three years, have you received any complaint, suit, inquiry or notice of hearing from any state or federal legislative committee, regulatory body or any other party? If yes, pelase provide a detailed explanation. <%= @volunteer_application.a2 %></p>
-<p> Are you aware of any circumstance(s) or action(s) which could result in a future claim against you? If yes, please provide a detailed explanation.<%= @volunteer_application.a3 %></p>
-<br/>
+<p> In what capacities have you volunteered for UWBV or other organizations?(i.e. civic clubs, churches, not-for-profit boards, committees, elected public office)</p>
+<%= @volunteer_application.a1 %>
+<hr>
+<p> Within the last three years, have you received any complaint, suit, inquiry or notice of hearing from any state or federal legislative committee, regulatory body or any other party? If yes, pelase provide a detailed explanation.</p>
+<%= @volunteer_application.a2 %>
+<hr>
+<p> Are you aware of any circumstance(s) or action(s) which could result in a future claim against you? If yes, please provide a detailed explanation.</p>
+<%= @volunteer_application.a3 %>
+<hr>
+
 <b><hr/></b>
 <%= link_to "Submit", pages_volunteerapplication_success_path(:application_id => @application.id), class: "btn btn-primary" %>
+</div>
 </div>

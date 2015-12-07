@@ -1,51 +1,583 @@
-
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">Review Application</h3>
+    </div>
 <% if @job.jobtype=="Internship" %>
-<p> First Name: <%= @applicant.first_name %></p>
-<p> Last Name: <%= @applicant.last_name %></p>
-<p> Email: <%= @applicant.email %></p>
-<p> Contact: <%= @applicant.contact %></p>
-<p> GPA: <%= @applicant.gpa %></p>
-<p> Credit Hours: <%= @applicant.credit_hours %></p>
-<br/>
-<b><hr/></b
-
-<h1>Questions</h1>
-<p> Why would you like to intern for the United Way of the Brazos Valley? <%= @internship_application.a1 %></p>
-<p> How would your background enable you to succeed in that role at UWBV? <%= @internship_application.a2 %></p>
-<p> Have you ever interned in the United Way of Brazos Valley or other United Way sites before? <%= @internship_application.a3 %></p>
+<p>
+  First Name:
+  <%= @applicant.first_name %></p>
+<p>
+  Last Name:
+  <%= @applicant.last_name %></p>
+<p>
+  Email:
+  <%= @applicant.email %></p>
+<p>
+  Contact:
+  <%= @applicant.contact %></p>
+<p>
+  GPA:
+  <%= @applicant.gpa %></p>
+<p>
+  Credit Hours:
+  <%= @applicant.credit_hours %></p>
+<hr>
+<strong>Questions</strong>
+<b><hr/></b>
+<p>Why would you like to intern for the United Way of the Brazos Valley?</p>
+<%= @internship_application.answer1 %>
+<hr>
+<p>How would your background enable you to succeed in that role at UWBV?</p>
+<%= @internship_application.answer2 %>
+<hr>
+<p>Have you ever interned in the United Way of Brazos Valley or other United Way sites before?</p>
+<%= @internship_application.answer3 %>
+<hr>
 <%= link_to "Download work sample", @internship_application.worksample.url, formtarget: "_blank" %>
 <br/>
 <b><hr/></b>
 <% end %>
 
 <% if @job.jobtype=="Paid Employment" %>
+<p>
+First Name:
+<%= @applicant.first_name %></p>
+<p>
+Last Name:
+<%= @applicant.last_name %></p>
+<p>
+Email:
+<%= @applicant.email %></p>
+<p>
+Contact:
+<%= @applicant.contact %></p>
+<p>
+Address:
+<%= @applicant.address %></p>
+<p>
+State:
+<%= @applicant.state %></p>
+<p>
+City:
+<%= @applicant.city %></p>
+<p>
+Zip:
+<%= @applicant.zip %></p>
+<p>Referral Source:</p>
+<%= @paidemployment_application.referral_source%>
+<hr>
+<p>
+Preferred mode of contact:</p>
+<%=@paidemployment_application.preferred_contact%>
+<hr>
+<p>Date of availability:</p>
+<%=@paidemployment_application.availability_date%>
+<hr>
+<p>Desired Salary:</p>
+<%=@paidemployment_application.desired_salary%>
+<hr>
+<p>Transportation required:</p>
+<%=@paidemployment_application.transportation%>
+<hr>
+<p>Above 18:</p>
+<%=@paidemployment_application.over_eighteen%>
+<hr>
+<p>Will you be able to submit proof of eligibility to work in the USA?:</p>
+<%=@paidemployment_application.work_proof%>
+<hr>
+<p>Are you willing to take a test for controlled substances?:</p>
+<%=@paidemployment_application.controlledsubstance_test%>
+<hr>
+<p>References:</p>
+<%=@paidemployment_application.references%>
+<hr>
+<p>Education:</p>
+<%=@paidemployment_application.education%>
+<hr>
+<p>Experience:</p>
+<%=@paidemployment_application.experience%>
+<br/>
+<b><hr/></b>
+
+<h1>Questions</h1>
+<hr>
+<p>What days and hours are you available for work?</p>
+<%= @paidemployment_application.a1 %>
+<hr>
+<p>Have you applied to work for UWBV before? If yes, please explain (include date).</p>
+<%= @paidemployment_application.a2 %>
+<hr>
+<p>Do you have any friends, relatives or acquaintances currently working for UWBV? If yes, state name(s) and relationship(s).</p>
+<%= @paidemployment_application.a3 %>
+<hr>
+<p>Are you able to perform the essential functions of the job for which you are applying either with/without reasonable accommodation? If no, describe the functions that cannot be performed.</p>
+<%= @paidemployment_application.a4 %>
+<hr>
+<p>Have you ever been convicted of a criminal offense (felony or misdemeanor)? If yes, please describe the crime - state nature of the crime(s), when and where convicted, and disposition of the case?</p>
+<%= @paidemployment_application.a5 %>
+<hr>
+<p>Do you speak, write, or understand any foreign langauge? If yes, describe which language(s) and how fluent of a speaker you consider to be?</p>
+<%= @paidemployment_application.a6 %>
+<hr>
+<p>Do you have any other experience, training, qualificaions, or skills which you feel should be brought to our attention, in the case that they make you especially suited to work with us?</p>
+<%= @paidemployment_application.a7 %>
+<hr>
+<p>Are you currently employed? If yes, may we contact your current employer?</p>
+<%= @paidemployment_application.a8 %>
+<hr>
+<%= link_to "Download resume", @paidemployment_application.resume.url, formtarget: "_blank" %>
+<hr>
+<%= link_to "Download cover letter", @paidemployment_application.coverletter.url, formtarget: "_blank" %>
+<br/>
+<b><hr/></b>
+
 <% end %>
 
 <% if @job.jobtype=="Volunteer" %>
 <br/><br/><br/>
 <h1>Applicant Information</h1>
-<p> First Name: <%= @applicant.first_name %></p>
-<p> Last Name: <%= @applicant.last_name %></p>
-<p> Email: <%= @applicant.email %></p>
-<p> Contact: <%= @applicant.contact %></p>
-<p> Address: <%= @applicant.address %></p>
-<p> City: <%= @applicant.city %></p>
-<p> State: <%= @applicant.state %></p>
-<p> Zip: <%= @applicant.zip %></p>
+<p>
+First Name:
+<%= @applicant.first_name %></p>
+<p>
+Last Name:
+<%= @applicant.last_name %></p>
+<p>
+Email:
+<%= @applicant.email %></p>
+<p>
+Contact:
+<%= @applicant.contact %></p>
+<p>
+Address:
+<%= @applicant.address %></p>
+<p>
+City:
+<%= @applicant.city %></p>
+<p>
+State:
+<%= @applicant.state %></p>
+<p>
+Zip:
+<%= @applicant.zip %></p>
 <br/><br/>
 <b><hr/></b>
-  <p>Job Title: <%= @volunteer_application.jobtitle %></p>
-  <p>Employer Name: <%= @volunteer_application.employername %></p>
-  <p>Employer Address: <%= @volunteer_application.employeraddress %></p>
-  <p>Business Phone: <%= @volunteer_application.employerphone %></p>
-  <p>Fax: <%= @volunteer_application.employerfax %></p>
-  <p>How many hours are you available to volunteer per week?: <%= @volunteer_application.hoursavailable %></p>
+<p>Job Title:</p>
+<%= @volunteer_application.jobtitle %>
+<hr>
+<p>Employer Name:</p>
+<%= @volunteer_application.employername %>
+<hr>
+<p>Employer Address:</p>
+<%= @volunteer_application.employeraddress %>
+<hr>
+<p>Business Phone:</p>
+<%= @volunteer_application.employerphone %>
+<hr>
+<p>Fax:</p>
+<%= @volunteer_application.employerfax %>
+<hr>
+<p>How many hours are you available to volunteer per week?:</p>
+<%= @volunteer_application.hoursavailable %>
+<hr>
 <h1>Questions</h1>
-<p> In what capacities have you volunteered for UWBV or other organizations?(i.e. civic clubs, churches, not-for-profit boards, committees, elected public office)<%= @volunteer_application.a1 %></p>
-<p> Within the last three years, have you received any complaint, suit, inquiry or notice of hearing from any state or federal legislative committee, regulatory body or any other party? If yes, pelase provide a detailed explanation. <%= @volunteer_application.a2 %></p>
-<p> Are you aware of any circumstance(s) or action(s) which could result in a future claim against you? If yes, please provide a detailed explanation.<%= @volunteer_application.a3 %></p>
+<p>In what capacities have you volunteered for UWBV or other organizations?(i.e. civic clubs, churches, not-for-profit boards, committees, elected public office)</p>
+<%= @volunteer_application.a1 %>
+<hr>
+<p>Within the last three years, have you received any complaint, suit, inquiry or notice of hearing from any state or federal legislative committee, regulatory body or any other party? If yes, pelase provide a detailed explanation.</p>
+<%= @volunteer_application.a2 %>
+<hr>
+<p>Are you aware of any circumstance(s) or action(s) which could result in a future claim against you? If yes, please provide a detailed explanation.</p>
+<%= @volunteer_application.a3 %>
+<hr>
 <br/>
 <b><hr/></b>
 <% end %>
+<br>
+  <button id="poll">Click For Application and Interviewing Options</button>
+  <button id="nopoll">Click to Send a Not Interested Mail</button>
+</br>
+<!--Javascript dialog box -->
+<script type="text/javascript">
+$(document)
+  .ready(function () {
+
+    $("#poll")
+      .click(function () {
+
+        $('#datepicker').datepicker();
+        document.getElementById("datepicker")
+          .value = "";
+        var InterviewCheckBox = document.getElementById("Interviewcheckbox");
+        var emailcheckbox = document.getElementById("mycheckbox");
+        emailcheckbox.checked = false;
+        Interviewcheckbox.checked = false;
+        var emailContent = document.getElementById("mycheckboxdiv");
+        var InterviewContent = document.getElementById("InterviewingOptions");
+        emailContent.style.display = "none"
+        InterviewContent.style.display = "none"
+        $("#myDialog").dialog({
+          height: 'auto',
+          buttons: {
+            "OK": function () {
+              var Status,
+                interviewDate,
+                InterviewStartTime,
+                InterviewEndTime,
+                emailbody,
+                sendapplicantemail,
+                displayalertmessage;
+              Status = $("#applicationstatus").val();
+              var admin_email = "<%= @email_id %>"
+              var sendemailtoadmin = false;
+              //    alert(admin_email)
+              //   interviewDate=$("#datepicker").val().split("-");
+              InterviewDate = $("#datepicker").val();
+              var applicantId = '<%= @applicant.id %>'
+              var applicantFirstName = '<%= @applicant.first_name %>'
+              var new_start = new Date($("#datepicker").val());
+              //   alert(new_start);
+              var Status = $("#applicationstatus").val();
+              emailbody = $("#interviewemail").val();
+              //   var InterviewDate = new Date(interviewDate=[2], interviewDate=[1] - 1, interviewDate=[0]);
+              InterviewStartTime = $("#time").val();
+              InterviewEndTime = $("#endtime").val();
+
+              if (($('#Interviewcheckbox').is(':checked') && (InterviewDate != "") || ((!$('#Interviewcheckbox').is(':checked')) && (InterviewDate == ""))))
+                displayalertmessage = "false";
+              else
+                displayalertmessage = "true";
+              if ($('#Interviewcheckbox').is(':checked') && (InterviewDate != ""))
+                sendemailtoadmin = true;
+              if ($('#mycheckbox').is(':checked'))
+                sendapplicantemail = "true"
+              else
+                sendapplicantemail = "false"
+              if (displayalertmessage == "false") {
+                //   alert("sending emails")
+                $.ajax({
+                  type: 'GET',
+                  url: '/jobs/sendemails',
+                  dataType: 'script',
+                  data: {
+                    body: (emailbody),
+                    subject: ("Interview scheduled for " + applicantFirstName),
+                    type: "offer",
+                    admin_email_id: admin_email,
+                    sendemailtoapplcant: sendapplicantemail,
+                    InterViewStatus: Status,
+                    ApplicantId: applicantId,
+                    sendadminmail: sendemailtoadmin,
+                    applicantName: applicantFirstName,
+                    startTime: InterviewStartTime,
+                    endTime: InterviewEndTime,
+                    dayofInterview: InterviewDate
+                  }
+                });
+                //  $(this).dialog("close");
+              } else {
+                alert("Date cannot be empty");
+              }
+              $.ajax({
+                type: 'GET',
+                url: '/jobs/interview_records',
+                dataType: 'script',
+                data: {
+                  admin_email_id: admin_email,
+                  ApplicantId: applicantId,
+                  DateofInterview: InterviewDate,
+                  InterviewEndTime: InterviewDate,
+                  sendadminmail: sendemailtoadmin
+                }
+              });
+
+              $(this).dialog("close");
+            }
+          }
+        });
+      });
+
+
+      $("#nopoll").click(function() {
+          $("#myDialognooffer").dialog({height: 'auto', buttons: { "OK": function() {  var applicantId= '<%= @applicant.id %>'; var answer=$("#nooffertext").val();$.ajax({type: 'GET', url: '/jobs/sendemails',dataType: 'script',data: { subject: "Thankyou For your Interest ",ApplicantId:applicantId, type: "nooffer",body: answer, sendemailtoapplcant:"true"  } }); $(this).dialog("close"); } } });
+      });
+    });
+</script>
+
+<div class="flora" id="myDialog" style="display: none;" title="Schedule Interview options">
+<br>
+<h6>What would you like to do</h6>
+<%= @name %></li>
+<u>Change Application Status:</u><input autocomplete="off" id="Applicationcheckbox" name="Applicationcheckbox" type="checkbox" value="Clickme"/>
+<div id="ApplicationStatus" style="display: none">
+<select id="applicationstatus">
+  <option value="NeedsReview">NeedsReview</option>
+  <option value="Under Review">Under Review</option>
+  <option value="Finished Processing">Finished Processing</option>
+  <option value="Match not Ideal">Match not Ideal</option>
+</select>
+</div>
+<script type="text/javascript">
+$('#Applicationcheckbox')
+  .change(function () {
+    var ApplicationStatusContent = document.getElementById("ApplicationStatus");
+    //    $('#mycheckboxdiv').style.display = "block";
+    if ($('#Applicationcheckbox').is(':checked'))
+      ApplicationStatusContent.style.display = "block";
+    else
+      ApplicationStatusContent.style.display = "none";
+  });
+</script>
+<!-- add styles -->
+
+<!--Interview Date(MM/DD/YY): <input type="text" id="first_name" />
+        Interview Time: <input type="text" id="time_name" /> -->
+
+<!-- Adding calendar functionality-->
+<u>
+Schedule Interview With Applicant:</u><input autocomplete="off" id="Interviewcheckbox" name="Interviewcheckbox" type="checkbox" value="Clickme"/>
+<div id="InterviewingOptions" style="display: none">
+Interview Date:
+<input height="auto" id="datepicker" type="text" width="auto"/>
+Interview Start Time :
+<br>
+<select id="time" name="time">
+  <option value="5:00 AM">5:00 AM</option>
+  <option value="5:15 AM">5:15 AM</option>
+  <option value="5:30 AM">5:30 AM</option>
+  <option value="5:45 AM">5:45 AM</option>
+
+  <option value="6:00 AM">6:00 AM</option>
+  <option value="6:15 AM">6:15 AM</option>
+  <option value="6:30 AM">6:30 AM</option>
+  <option value="6:45 AM">6:45 AM</option>
+
+  <option value="7:00 AM">7:00 AM</option>
+  <option value="7:15 AM">7:15 AM</option>
+  <option value="7:30 AM">7:30 AM</option>
+  <option value="7:45 AM">7:45 AM</option>
+
+  <option value="8:00 AM">8:00 AM</option>
+  <option value="8:15 AM">8:15 AM</option>
+  <option value="8:30 AM">8:30 AM</option>
+  <option value="8:45 AM">8:45 AM</option>
+
+  <option value="9:00 AM">9:00 AM</option>
+  <option value="9:15 AM">9:15 AM</option>
+  <option value="9:30 AM">9:30 AM</option>
+  <option value="9:45 AM">9:45 AM</option>
+
+  <option value="10:00 AM">10:00 AM</option>
+  <option value="10:15 AM">10:15 AM</option>
+  <option value="10:30 AM">10:30 AM</option>
+  <option value="10:45 AM">10:45 AM</option>
+
+  <option value="11:00 AM">11:00 AM</option>
+  <option value="11:15 AM">11:15 AM</option>
+  <option value="11:30 AM">11:30 AM</option>
+  <option value="11:45 AM">11:45 AM</option>
+
+  <option value="12:00 PM">12:00 PM</option>
+  <option value="12:15 PM">12:15 PM</option>
+  <option value="12:30 PM">12:30 PM</option>
+  <option value="12:45 PM">12:45 PM</option>
+
+  <option value="1:00 PM">1:00 PM</option>
+  <option value="1:15 PM">1:15 PM</option>
+  <option value="1:30 PM">1:30 PM</option>
+  <option value="1:45 PM">1:45 PM</option>
+
+  <option value="2:00 PM">2:00 PM</option>
+  <option value="2:15 PM">2:15 PM</option>
+  <option value="2:30 PM">2:30 PM</option>
+  <option value="2:45 PM">2:45 PM</option>
+
+  <option value="3:00 PM">3:00 PM</option>
+  <option value="3:15 PM">3:15 PM</option>
+  <option value="3:30 PM">3:30 PM</option>
+  <option value="3:45 PM">3:45 PM</option>
+
+  <option value="4:00 PM">4:00 PM</option>
+  <option value="4:15 PM">4:15 PM</option>
+  <option value="4:30 PM">4:30 PM</option>
+  <option value="4:45 PM">4:45 PM</option>
+
+  <option value="5:00 PM">5:00 PM</option>
+  <option value="5:15 PM">5:15 PM</option>
+  <option value="5:30 PM">5:30 PM</option>
+  <option value="5:45 PM">5:45 PM</option>
+
+  <option value="6:00 PM">6:00 PM</option>
+  <option value="6:15 PM">6:15 PM</option>
+  <option value="6:30 PM">6:30 PM</option>
+  <option value="6:45 PM">6:45 PM</option>
+
+  <option value="7:00 PM">7:00 PM</option>
+  <option value="7:15 PM">7:15 PM</option>
+  <option value="7:30 PM">7:30 PM</option>
+  <option value="7:45 PM">7:45 PM</option>
+
+  <option value="8:00 PM">8:00 PM</option>
+  <option value="8:15 PM">8:15 PM</option>
+  <option value="8:30 PM">8:30 PM</option>
+  <option value="8:45 PM">8:45 PM</option>
+
+  <option value="9:00 PM">9:00 PM</option>
+  <option value="9:15 PM">9:15 PM</option>
+  <option value="9:30 PM">9:30 PM</option>
+  <option value="9:45 PM">9:45 PM</option>
+
+  <option value="10:00 PM">10:00 PM</option>
+  <option value="10:15 PM">10:15 PM</option>
+  <option value="10:30 PM">10:30 PM</option>
+  <option value="10:45 PM">10:45 PM</option>
+
+  <option value="11:00 PM">11:00 PM</option>
+  <option value="11:15 PM">11:15 PM</option>
+  <option value="11:30 PM">11:30 PM</option>
+  <option value="11:45 PM">11:45 PM</option>
+</select>
+</br>
+Interview endtime Time :
+<br>
+<select id="endtime" name="endtime">
+<option value="5:00 AM">5:00 AM</option>
+<option value="5:15 AM">5:15 AM</option>
+<option value="5:30 AM">5:30 AM</option>
+<option value="5:45 AM">5:45 AM</option>
+
+<option value="6:00 AM">6:00 AM</option>
+<option value="6:15 AM">6:15 AM</option>
+<option value="6:30 AM">6:30 AM</option>
+<option value="6:45 AM">6:45 AM</option>
+
+<option value="7:00 AM">7:00 AM</option>
+<option value="7:15 AM">7:15 AM</option>
+<option value="7:30 AM">7:30 AM</option>
+<option value="7:45 AM">7:45 AM</option>
+
+<option value="8:00 AM">8:00 AM</option>
+<option value="8:15 AM">8:15 AM</option>
+<option value="8:30 AM">8:30 AM</option>
+<option value="8:45 AM">8:45 AM</option>
+
+<option value="9:00 AM">9:00 AM</option>
+<option value="9:15 AM">9:15 AM</option>
+<option value="9:30 AM">9:30 AM</option>
+<option value="9:45 AM">9:45 AM</option>
+
+<option value="10:00 AM">10:00 AM</option>
+<option value="10:15 AM">10:15 AM</option>
+<option value="10:30 AM">10:30 AM</option>
+<option value="10:45 AM">10:45 AM</option>
+
+<option value="11:00 AM">11:00 AM</option>
+<option value="11:15 AM">11:15 AM</option>
+<option value="11:30 AM">11:30 AM</option>
+<option value="11:45 AM">11:45 AM</option>
+
+<option value="12:00 PM">12:00 PM</option>
+<option value="12:15 PM">12:15 PM</option>
+<option value="12:30 PM">12:30 PM</option>
+<option value="12:45 PM">12:45 PM</option>
+
+<option value="1:00 PM">1:00 PM</option>
+<option value="1:15 PM">1:15 PM</option>
+<option value="1:30 PM">1:30 PM</option>
+<option value="1:45 PM">1:45 PM</option>
+
+<option value="2:00 PM">2:00 PM</option>
+<option value="2:15 PM">2:15 PM</option>
+<option value="2:30 PM">2:30 PM</option>
+<option value="2:45 PM">2:45 PM</option>
+
+<option value="3:00 PM">3:00 PM</option>
+<option value="3:15 PM">3:15 PM</option>
+<option value="3:30 PM">3:30 PM</option>
+<option value="3:45 PM">3:45 PM</option>
+
+<option value="4:00 PM">4:00 PM</option>
+<option value="4:15 PM">4:15 PM</option>
+<option value="4:30 PM">4:30 PM</option>
+<option value="4:45 PM">4:45 PM</option>
+
+<option value="5:00 PM">5:00 PM</option>
+<option value="5:15 PM">5:15 PM</option>
+<option value="5:30 PM">5:30 PM</option>
+<option value="5:45 PM">5:45 PM</option>
+
+<option value="6:00 PM">6:00 PM</option>
+<option value="6:15 PM">6:15 PM</option>
+<option value="6:30 PM">6:30 PM</option>
+<option value="6:45 PM">6:45 PM</option>
+
+<option value="7:00 PM">7:00 PM</option>
+<option value="7:15 PM">7:15 PM</option>
+<option value="7:30 PM">7:30 PM</option>
+<option value="7:45 PM">7:45 PM</option>
+
+<option value="8:00 PM">8:00 PM</option>
+<option value="8:15 PM">8:15 PM</option>
+<option value="8:30 PM">8:30 PM</option>
+<option value="8:45 PM">8:45 PM</option>
+
+<option value="9:00 PM">9:00 PM</option>
+<option value="9:15 PM">9:15 PM</option>
+<option value="9:30 PM">9:30 PM</option>
+<option value="9:45 PM">9:45 PM</option>
+
+<option value="10:00 PM">10:00 PM</option>
+<option value="10:15 PM">10:15 PM</option>
+<option value="10:30 PM">10:30 PM</option>
+<option value="10:45 PM">10:45 PM</option>
+
+<option value="11:00 PM">11:00 PM</option>
+<option value="11:15 PM">11:15 PM</option>
+<option value="11:30 PM">11:30 PM</option>
+<option value="11:45 PM">11:45 PM</option>
+</select>
+</div>
+<script type="text/javascript">
+$('#Interviewcheckbox')
+  .change(function () {
+    var InterviewContent = document.getElementById("InterviewingOptions");
+    //    $('#mycheckboxdiv').style.display = "block";
+    if ($('#Interviewcheckbox').is(':checked')) {
+      document.getElementById("datepicker")
+        .value = ""; //reset the datepicker to an empty box
+      InterviewContent.style.display = "block";
+    } else
+      InterviewContent.style.display = "none";
+  });
+</script>
+<u>Send Email To Applicant:</u><input autocomplete="off" id="mycheckbox" name="mycheckbox" type="checkbox" value="Clickme"/>
+<div id="mycheckboxdiv" style="display: none">
+Email Body:
+<textarea id="interviewemail">
+you have been selected for the next round</textarea>
+</div>
+<script type="text/javascript">
+$('#mycheckbox')
+  .change(function () {
+    var emailContent = document.getElementById("mycheckboxdiv");
+    //    $('#mycheckboxdiv').style.display = "block";
+    if ($('#mycheckbox').is(':checked'))
+      emailContent.style.display = "block";
+    else
+      emailContent.style.display = "none";
+  });
+</script>
+
+</div>
+<div class="flora" id="myDialognooffer" style="display: none;" title="send nooffer mail">
+<p>Are you sure</p>
+Rejection Email:
+<textarea id="nooffertext">
+We have reviewed you application and and have decided to move on</textarea>
+</div>
+
+<div id='result' style='color: green;'></div>
 
 <%= link_to "Go Back", jobs_path %>

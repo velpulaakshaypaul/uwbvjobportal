@@ -1,6 +1,15 @@
-<h1>Editing Job</h1>
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">Edit job details</h3>
+    </div>
 
+<div>
+  <%= link_to 'Show', @job, class: "btn btn-link" %> |
+  <%= link_to 'Back', jobs_path, class: "btn btn-link" %>
 <%= render 'form' %>
+</div>
 
-<%= link_to 'Show', @job, class: "btn btn-link" %> |
-<%= link_to 'Back', jobs_path, class: "btn btn-link" %>
+</div>
+</div>

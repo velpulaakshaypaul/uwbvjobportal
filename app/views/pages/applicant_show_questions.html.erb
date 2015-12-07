@@ -1,9 +1,14 @@
-<div style="padding-top: 100px;">
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">Profile details</h3>
+    </div>
 <br/>
 <br/>
 
 <%= form_for @internship_application, :url => pages_intern_application_review_path(:application_id => @application.id), html: { multipart: true } do |internship_application|%>
-    <div class="form-group col-xs-6 col-xs-offset-3">
+    <div class="form-group col-xs-6 col-xs-offset-3" style="padding-top:50px;">
     <p>Why would you like to intern for United Way of the Brazos Valley?</p>
     <%= internship_application.label :answer1 %><br>
     <%= internship_application.text_area :answer1, class: "form-control" %>
@@ -28,4 +33,5 @@
   </div>
 
 <% end %>
+</div>
 </div>

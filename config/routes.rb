@@ -26,6 +26,7 @@ resources :jobs do
   collection do
     get 'sendemails'
     get 'interview_records'
+    get 'generatedashboard'
   end
 end
   devise_for :users

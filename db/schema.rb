@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206082444) do
+ActiveRecord::Schema.define(version: 20151207064058) do
 
   create_table "adminusers", force: :cascade do |t|
     t.string   "firstname"
@@ -72,6 +72,17 @@ ActiveRecord::Schema.define(version: 20151206082444) do
     t.string   "worksample_content_type"
     t.integer  "worksample_file_size"
     t.datetime "worksample_updated_at"
+  end
+
+  create_table "interviewrecords", force: :cascade do |t|
+    t.string   "AdminEmails"
+    t.text     "InterviewStartTime"
+    t.text     "InterviewEndTime"
+    t.text     "InterviewDate"
+    t.string   "SentReminderEmails"
+    t.integer  "ApplicantId"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "jobs", force: :cascade do |t|

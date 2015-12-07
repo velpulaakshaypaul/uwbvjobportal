@@ -1,8 +1,13 @@
-<div style="padding-top: 100px;">
+<div class="pagediv">
+  <%= stylesheet_link_tag 'master' %>
+  <div class="panel panel-default" id="profiledetails">
+    <div class="panel-heading">
+      <h3 class="panel-title">Please answer the following questions</h3>
+    </div>
   <%= form_for VolunteerApplication.new, :url => pages_volunteerapplication_review_path(:application_id => @application.id), html: { multipart: true } do |volunteer_application| %>
 
-  <div class="form-group col-xs-6 col-xs-offset-3">
-    <p>If you are employed currently, please provide the following details:</p>
+  <div class="form-group col-xs-6 col-xs-offset-3" style="padding-top:50px;">
+    <strong>If you are employed currently, please provide the following details:</strong>
     <p>Your job title:</p>
     <%= volunteer_application.label :jobtitle %><br>
     <%= volunteer_application.text_field :jobtitle %>
@@ -53,4 +58,5 @@
 
 
   <% end %>
+</div>
 </div>

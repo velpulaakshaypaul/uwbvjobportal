@@ -7,6 +7,12 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.where(:adminuser_id => current_user.id)
+
+
+    @totalinternship_applications = Job.where(:adminuser_id => current_user.id).where(:jobtype => "Internship").count
+    @totalpaidemployment_applications = Job.where(:adminuser_id => current_user.id).where(:jobtype => "Paid Employment").count
+    @totalvolunteer_applications = Job.where(:adminuser_id => current_user.id).where(:jobtype => "Volunteer").count
+    @totalinterviewsscheduled = Interviewrecord.where(:AdminEmails => params[:user_email]).count
     #@jobs = Job.all
     @email_id=params[:user_email];
   end
@@ -19,29 +25,74 @@ class JobsController < ApplicationController
 
   def viewapplicants
     @job = Job.find_by_id(params[:job_id])
-    @applicants = Applicant.joins(:applications).where(applications: {status: "Submitted"}).where(applications: {job_id: params[:job_id]})
+    @admin_email=params[:admin_email]
+    logger.debug "inviewapplicants"
+    logger.debug @admin_email
+    @applicants = Applicant.joins(:applications).where(applications: {job_id: params[:job_id]}).where.not(applications: {status: "started" })
+    @statuses=Hash.new
+    @applicants.each do |applicant|
+      applicant_id=applicant.id
+      @applications = Application.where(:applicant_id => applicant_id).where(:job_id => params[:job_id]).first
+      @statuses[applicant_id] = @applications.status
+    end
     render template: "jobs/displayapplicantsforjob"
   end
 
   def viewapplicationforapplicant
     @job = Job.find_by_id(params[:job_id])
+    @email_id=params[:admin_email];
     @applicant=Applicant.find_by_id(params[:applicant_id])
     @application= Application.where(:job_id => params[:job_id]).where(:applicant_id => params[:applicant_id])
-    logger.debug @application
     if @job.jobtype == "Internship"
-      @internship_application=InternshipApplication.where(:job_id => params[:job_id]).where(:applicant_id => params[:applicant_id])
+      @internship_application=InternshipApplication.where(:job_id => params[:job_id]).where(:applicant_id => params[:applicant_id]).first
       render template: "jobs/view_applicant_information"
     end
     if @job.jobtype == "Volunteer"
       @volunteer_application=VolunteerApplication.where(:Job_id => params[:job_id]).where(:Applicant_id => params[:applicant_id]).first
       render template: "jobs/view_applicant_information"
     end
+    if @job.jobtype == "Paid Employment"
+      @paidemployment_application=PaidemploymentApplication.where(:Job_id => params[:job_id]).where(:Applicant_id => params[:applicant_id]).first
+      render template: "jobs/view_applicant_information"
+    end
   end
 
  def interview_records
+   @InterviewEntry=Interviewrecord.new(:ApplicantId=> params[:ApplicantId],:AdminEmails=>params[:admin_email_id], :InterviewDate =>params[:DateofInterview],:InterviewStartTime=> params[:DateofInterview],:InterviewEndTime => params[:DateofInterview],:SentReminderEmails => "false")
+    @InterviewEntry.save;
  end
-  def sendemails
-  end
+
+ def sendemails
+   if params[:type]=="nooffer"
+       if params[:sendemailtoapplcant]=="true"
+       @applications= Application.find_by(:applicant_id=> params[:ApplicantId])
+       @applicants = Applicant.find(params[:ApplicantId])
+       @Mailtester=UserMailer.welcome_email(@applicants,params[:body],params[:subject]).deliver
+      end
+   else
+   @applications= Application.find_by(:applicant_id=> params[:ApplicantId])
+   @applicants = Applicant.find(params[:ApplicantId])
+   logger.debug @applicants.email
+   @applications.update(status: params[:InterViewStatus])
+  # @admid_id=params[:admin_email_id];
+   @admin_email=params[:admin_email_id]
+   if params[:sendadminmail]=="true"
+    @adminmailer=UserMailer.admin_email(@admin_email,params[:applicantName],params[:dayofInterview],params[:startTime],params[:endTime]).deliver
+   end
+   if params[:sendemailtoapplcant]=="true"
+     @Mailtester=UserMailer.interviewRequest_email(@applicants,params[:dayofInterview],params[:startTime],params[:endTime],params[:body],params[:subject]).deliver
+   end
+   end
+   end
+
+
+   def generatedashboard
+
+   end
+
+
+
+
   # GET /jobs/new
   def new
     @job = Job.new
@@ -58,7 +109,7 @@ class JobsController < ApplicationController
     @job.adminuser_id = current_user.id
     respond_to do |format|
       if @job.save
-          format.html { redirect_to questions_path, notice: 'Job was successfully created.' }
+          format.html { redirect_to jobs_path, notice: 'Job was successfully created.' }
           format.json { render :show, status: :created, location: @job }
       end
     end
